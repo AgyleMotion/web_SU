@@ -1,0 +1,5 @@
+.DS_Store
+Thumbs.db
+
+# working docs (not part of the published site)
+SRAW-website-intake.*

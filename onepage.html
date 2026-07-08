@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  =============================================================================
+  SAW - Stevens Academic Workers  (campaign site template)
+  Modeled on academic-worker union drives (e.g. Drexel DRAW, SRU-UAW).
+
+  >>> THINGS TO CUSTOMIZE (search for the word "CUSTOMIZE" throughout):
+    1. Campaign name + acronym .............. "SAW" / "Stevens Academic Workers"
+    2. National union affiliation ........... search: [UNION AFFILIATION]
+    3. Contact email + social links ......... search: [CONTACT] / footer
+    4. Real stats (headcount, % signed) ..... search: data-count / .stat
+    5. Real worker testimonials ............. #voices section (samples now)
+    6. The authorization-card form action ... see script.js + #card form
+       NOTE: Real union authorization cards are legally significant and
+       confidential. For live use, connect the form to your union's OFFICIAL
+       secure card platform (UAW/AFT/Action Network/etc.), NOT a plain POST.
+  =============================================================================
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAW: Stevens Academic Workers</title>
+  <meta name="description" content="Stevens Academic Workers are organizing a union to win a real voice over our pay, benefits, job security, and working conditions. Sign your union card." />
+  <meta name="theme-color" content="#16151a" />
+
+  <!-- Social preview (CUSTOMIZE) -->
+  <meta property="og:title" content="SAW: Stevens Academic Workers" />
+  <meta property="og:description" content="We do the work. It's time we had a voice in it. Sign your union card." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23d32436'/%3E%3Ctext x='50' y='68' font-family='Arial' font-weight='900' font-size='52' fill='white' text-anchor='middle'%3E✊%3C/text%3E%3C/svg%3E" />
+
+  <!-- Enable JS-only enhancements without breaking the no-JS experience -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="SAW home">
+        <span class="brand__mark" aria-hidden="true">
+          <!-- Raised-fist solidarity mark -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M7 10h2V5.5a1.25 1.25 0 0 1 2.5 0V10h.6V4.2a1.25 1.25 0 0 1 2.5 0V10h.6V5.6a1.2 1.2 0 0 1 2.4 0V13a6 6 0 0 1-6 6h-1.3a6 6 0 0 1-5.2-3l-1.6-2.8a1.3 1.3 0 0 1 2-1.6L7 12.8V10Z"/>
+            <rect x="6.6" y="2.2" width="11.8" height="2.2" rx="1.1"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <strong>SAW</strong>
+          <small>Stevens Academic Workers</small>
+        </span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav__links" id="nav-links">
+        <a class="nav__link" href="#about">About</a>
+        <a class="nav__link" href="#issues">Why a Union</a>
+        <a class="nav__link" href="#international">International &amp; Funding</a>
+        <a class="nav__link" href="#voices">Voices</a>
+        <a class="nav__link" href="#committee">Committee</a>
+        <a class="nav__link" href="#faq">FAQ</a>
+        <a class="nav__cta" href="#card">Sign Your Card</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__inner container">
+        <p class="hero__eyebrow">Stevens Academic Workers</p>
+        <h1 class="hero__title">We do the work.<br />It's time we had a&nbsp;<span class="u-mark">voice</span>&nbsp;in it.</h1>
+        <p class="hero__lede">
+          Graduate workers, TAs, RAs, postdocs, and research staff at Stevens are
+          coming together to form a union so we can win a real say over our
+          pay, benefits, job security, and working conditions through a legally
+          binding contract.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#card">✊&nbsp; Sign Your Union Card</a>
+          <a class="btn btn--ghost" href="#issues">Why we're organizing</a>
+        </div>
+
+        <ul class="hero__stats" aria-label="Campaign at a glance">
+          <!-- CUSTOMIZE the numbers below (data-count drives the count-up animation) -->
+          <li class="stat">
+            <span class="stat__num" data-count="480">0</span>
+            <span class="stat__label">students &amp; researchers</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num" data-count="40" data-suffix="%">0</span>
+            <span class="stat__label">international workers among us</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num">1</span>
+            <span class="stat__label">united voice at the table</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================= SOLIDARITY MARQUEE ======================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item">Sign your card</span><span class="marquee__star">★</span>
+        <span class="marquee__item">One worker, one vote</span><span class="marquee__star">★</span>
+        <span class="marquee__item">An injury to one is an injury to all</span><span class="marquee__star">★</span>
+        <span class="marquee__item">A union of, by, and for us</span><span class="marquee__star">★</span>
+        <span class="marquee__item">Solidarity forever</span><span class="marquee__star">★</span>
+        <!-- duplicate for seamless loop -->
+        <span class="marquee__item">Sign your card</span><span class="marquee__star">★</span>
+        <span class="marquee__item">One worker, one vote</span><span class="marquee__star">★</span>
+        <span class="marquee__item">An injury to one is an injury to all</span><span class="marquee__star">★</span>
+        <span class="marquee__item">A union of, by, and for us</span><span class="marquee__star">★</span>
+        <span class="marquee__item">Solidarity forever</span><span class="marquee__star">★</span>
+      </div>
+    </div>
+
+    <!-- ============================ ABOUT ============================ -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__eyebrow">About Us</p>
+          <h2 class="section__title">Who we are</h2>
+        </div>
+        <div class="about__grid">
+          <div class="about__text reveal">
+            <p class="lead">
+              We are the graduate workers, teaching and research assistants,
+              postdoctoral researchers, and academic staff who keep Stevens
+              running: teaching the classes, running the labs, and producing
+              the research the university is known for.
+            </p>
+            <p>
+              Right now, decisions about our pay, healthcare, workloads, and
+              protections are made <em>for</em> us, not <em>with</em> us. When we
+              form a union, those decisions become something we negotiate,
+              together, as equals, in a contract the university is legally
+              bound to honor. That's the difference between a promise and a
+              guarantee.
+            </p>
+            <p>
+              We're not waiting for permission to be treated with dignity. We're
+              organizing for it. The first step is simple: a majority of us sign
+              union cards, and we ask Stevens to recognize our voice.
+            </p>
+          </div>
+          <ul class="about__points reveal">
+            <li class="point">
+              <span class="point__k">What a union is</span>
+              <span class="point__v">All of us, organized, bargaining one contract together, instead of negotiating alone.</span>
+            </li>
+            <li class="point">
+              <span class="point__k">Who it's for</span>
+              <span class="point__v">Grad workers, TAs, RAs, postdocs, and research staff across every department.</span>
+            </li>
+            <li class="point">
+              <span class="point__k">How we win</span>
+              <span class="point__v">A supermajority signs cards &rarr; we demand recognition or an election &rarr; we bargain a contract.</span>
+            </li>
+            <li class="point">
+              <span class="point__k">Who runs it</span>
+              <span class="point__v">We do. Workers make every decision democratically, from the bottom up.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= ISSUES / WHY A UNION ======================= -->
+    <section class="section issues" id="issues">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__eyebrow">Why We're Organizing</p>
+          <h2 class="section__title">What we're fighting for</h2>
+          <p class="section__intro">These aren't favors to ask for. They're terms to negotiate. A union contract lets us win and protect them in writing.</p>
+        </div>
+
+        <div class="issue-grid">
+          <article class="issue reveal">
+            <span class="issue__icon" aria-hidden="true">💵</span>
+            <h3 class="issue__title">Fair, livable pay</h3>
+            <p class="issue__desc">Stipends and wages that keep pace with the cost of living in the area, with raises we can count on, not hope for.</p>
+          </article>
+          <article class="issue reveal">
+            <span class="issue__icon" aria-hidden="true">➕</span>
+            <h3 class="issue__title">Real healthcare &amp; benefits</h3>
+            <p class="issue__desc">Affordable, comprehensive health, dental, and mental-health coverage, plus fee relief and family support.</p>
+          </article>
+          <article class="issue reveal">
+            <span class="issue__icon" aria-hidden="true">🛡️</span>
+            <h3 class="issue__title">Job security</h3>
+            <p class="issue__desc">Clear appointments, transparent workloads, and protection from being cut loose without cause or notice.</p>
+          </article>
+          <article class="issue reveal">
+            <span class="issue__icon" aria-hidden="true">🌍</span>
+            <h3 class="issue__title">International worker protections</h3>
+            <p class="issue__desc">Safeguards for colleagues whose visas depend on their jobs, so immigration status is never used as leverage.</p>
+          </article>
+          <article class="issue reveal">
+            <span class="issue__icon" aria-hidden="true">🔬</span>
+            <h3 class="issue__title">Stable research funding</h3>
+            <p class="issue__desc">Predictable, guaranteed funding so a grant gap or an advisor's whim can't derail a degree or a career.</p>
+          </article>
+          <article class="issue reveal">
+            <span class="issue__icon" aria-hidden="true">⚖️</span>
+            <h3 class="issue__title">Respect &amp; a fair process</h3>
+            <p class="issue__desc">A real grievance procedure and strong protections against harassment, discrimination, and retaliation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== INTERNATIONAL WORKERS / RESEARCH FUNDING ============== -->
+    <section class="section intl" id="international">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__eyebrow">International Workers &amp; Research Funding</p>
+          <h2 class="section__title">Our union is stronger because it's global</h2>
+          <p class="section__intro">
+            International researchers are the backbone of academic work at Stevens, and they shoulder risks their domestic colleagues never have to think about. A union contract is one of the most powerful tools to protect them.
+          </p>
+        </div>
+
+        <div class="intl__grid">
+          <article class="intl__card reveal">
+            <h3>Your status shouldn't be a bargaining chip</h3>
+            <p>
+              When a visa is tied to a job, losing the job can mean losing the
+              right to stay in the country. That imbalance can silence people.
+              Contract language (just cause for discipline, notice periods,
+              and a neutral grievance process) makes it far harder for that
+              power to be misused.
+            </p>
+          </article>
+          <article class="intl__card reveal">
+            <h3>Funding you can plan a life around</h3>
+            <p>
+              International workers often can't take outside jobs to cover a
+              funding gap. We're organizing for guaranteed, multi-year funding
+              commitments, protected stipends during grant transitions, and
+              support for the fees and costs like SEVIS, visa renewals, and travel
+              that fall hardest on international colleagues.
+            </p>
+          </article>
+          <article class="intl__card reveal">
+            <h3>Support that travels with you</h3>
+            <p>
+              From summer funding to emergency hardship funds to clear policies on
+              remote work and travel, a contract turns "talk to your advisor" into
+              enforceable rights that don't depend on who your PI is or where
+              you're from.
+            </p>
+          </article>
+        </div>
+
+        <div class="intl__note reveal">
+          <strong>Is it safe for international workers to sign a card?</strong>
+          Yes. Federal labor law protects your right to organize regardless of
+          immigration status, and your card is confidential. More in the
+          <a href="#faq">FAQ&nbsp;&rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ VOICES ============================ -->
+    <section class="section voices" id="voices">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__eyebrow">Testimonials</p>
+          <h2 class="section__title">Why we're signing</h2>
+          <p class="section__intro"><!-- CUSTOMIZE: replace these samples with real, consented quotes from coworkers --> Sample quotes. Swap in real voices from your coworkers.</p>
+        </div>
+
+        <div class="voices__grid">
+          <figure class="quote reveal">
+            <blockquote class="quote__text">"I love my research. I just don't love wondering whether next semester's funding will actually come through. A contract would let me focus on the science."</blockquote>
+            <figcaption class="quote__person">
+              <span class="quote__avatar" aria-hidden="true">AR</span>
+              <span><strong>PhD Candidate</strong><small>Chemical Engineering</small></span>
+            </figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote class="quote__text">"As an international student, my visa is tied to my appointment. Knowing my coworkers have my back changes everything. That's why I signed."</blockquote>
+            <figcaption class="quote__person">
+              <span class="quote__avatar" aria-hidden="true">MK</span>
+              <span><strong>Research Assistant</strong><small>Computer Science</small></span>
+            </figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote class="quote__text">"We teach the labs, grade the work, and run the experiments. We've earned a seat at the table. A union is how we pull up a chair."</blockquote>
+            <figcaption class="quote__person">
+              <span class="quote__avatar" aria-hidden="true">JD</span>
+              <span><strong>Teaching Assistant</strong><small>Mechanical Engineering</small></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ORGANIZING COMMITTEE / LEADERS ==================== -->
+    <!-- CUSTOMIZE: Put each leader's photo in  assets/leaders/  and make the
+         <img src> filename below match. Square image (~400-800px), .jpg/.png/.webp.
+         If a photo is missing, the card automatically shows the person's initials,
+         so the section never looks broken. Add or remove <article> cards freely. -->
+    <section class="section committee" id="committee">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__eyebrow">About Us</p>
+          <h2 class="section__title">Meet the organizing committee</h2>
+          <p class="section__intro">The workers leading this campaign are your colleagues, right in your departments. <!-- CUSTOMIZE: sample committee below, swap in your real organizers. --> Sample names below. Replace with your real organizers.</p>
+        </div>
+
+        <div class="leaders__grid">
+          <article class="leader reveal">
+            <span class="leader__photo" data-initials="AO">
+              <img src="assets/leaders/amara.jpg" alt="Amara Okafor" loading="lazy" onerror="this.style.display='none'" />
+            </span>
+            <h3 class="leader__name">Amara Okafor</h3>
+            <p class="leader__role">Lead Organizer</p>
+            <p class="leader__dept">Chemical Engineering &middot; PhD</p>
+          </article>
+
+          <article class="leader reveal">
+            <span class="leader__photo" data-initials="DM">
+              <img src="assets/leaders/diego.jpg" alt="Diego Martínez" loading="lazy" onerror="this.style.display='none'" />
+            </span>
+            <h3 class="leader__name">Diego Martínez</h3>
+            <p class="leader__role">Co-Chair</p>
+            <p class="leader__dept">Mechanical Engineering &middot; PhD</p>
+          </article>
+
+          <article class="leader reveal">
+            <span class="leader__photo" data-initials="PN">
+              <img src="assets/leaders/priya.jpg" alt="Priya Nair" loading="lazy" onerror="this.style.display='none'" />
+            </span>
+            <h3 class="leader__name">Priya Nair</h3>
+            <p class="leader__role">International Workers Liaison</p>
+            <p class="leader__dept">Computer Science &middot; Postdoc</p>
+          </article>
+
+          <article class="leader reveal">
+            <span class="leader__photo" data-initials="SW">
+              <img src="assets/leaders/sam.jpg" alt="Sam Whitfield" loading="lazy" onerror="this.style.display='none'" />
+            </span>
+            <h3 class="leader__name">Sam Whitfield</h3>
+            <p class="leader__role">Communications</p>
+            <p class="leader__dept">Physics &middot; Research Assistant</p>
+          </article>
+
+          <article class="leader reveal">
+            <span class="leader__photo" data-initials="LH">
+              <img src="assets/leaders/leila.jpg" alt="Leila Haddad" loading="lazy" onerror="this.style.display='none'" />
+            </span>
+            <h3 class="leader__name">Leila Haddad</h3>
+            <p class="leader__role">Bargaining Committee</p>
+            <p class="leader__dept">Biomedical Engineering &middot; PhD</p>
+          </article>
+
+          <article class="leader reveal">
+            <span class="leader__photo" data-initials="JL">
+              <img src="assets/leaders/jordan.jpg" alt="Jordan Lee" loading="lazy" onerror="this.style.display='none'" />
+            </span>
+            <h3 class="leader__name">Jordan Lee</h3>
+            <p class="leader__role">Department Steward</p>
+            <p class="leader__dept">Civil Engineering &middot; Teaching Assistant</p>
+          </article>
+        </div>
+
+        <p class="committee__note reveal">Want a seat on the committee? <a href="#involved">Get involved &rarr;</a></p>
+      </div>
+    </section>
+
+    <!-- =================== AUTHORIZATION CARD (ONLINE CARD) =================== -->
+    <section class="section card-cta" id="card">
+      <div class="container">
+        <div class="card-cta__inner">
+          <div class="card-cta__copy reveal">
+            <p class="section__eyebrow section__eyebrow--light">Online Union Card</p>
+            <h2 class="section__title section__title--light">Sign your union card</h2>
+            <p class="card-cta__lede">
+              Signing a card is how we build the supermajority that lets us demand
+              recognition. It says: <em>"I want a union, and I authorize SAW to
+              represent me."</em> It is confidential, it costs nothing, and it does
+              not commit you to dues today.
+            </p>
+
+            <ol class="card-steps">
+              <li class="step"><span class="step__n">1</span><span>A majority of us sign cards.</span></li>
+              <li class="step"><span class="step__n">2</span><span>We demand voluntary recognition or file for an election.</span></li>
+              <li class="step"><span class="step__n">3</span><span>We bargain our first contract, together.</span></li>
+            </ol>
+
+            <p class="card-cta__assure">
+              🔒 <strong>Confidential.</strong> Your card is seen only by the worker
+              organizing committee. Use a <strong>personal</strong> email, not
+              your Stevens address.
+            </p>
+          </div>
+
+          <!-- CUSTOMIZE: This is a front-end demo form. For a live campaign, connect
+               it to your union's OFFICIAL secure card platform (Action Network, UAW/
+               AFT card system, etc.). See handler + note in script.js. -->
+          <form class="card-form" id="cardForm" novalidate>
+            <h3 class="card-form__title">Add your name</h3>
+
+            <div class="field">
+              <label for="f-name">Full name <span aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label for="f-email">Personal email <span aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@gmail.com (not @stevens.edu)" required />
+            </div>
+
+            <div class="field field--row">
+              <div>
+                <label for="f-role">Your role</label>
+                <select id="f-role" name="role">
+                  <option value="">Select…</option>
+                  <option>Graduate worker / PhD</option>
+                  <option>Teaching Assistant</option>
+                  <option>Research Assistant</option>
+                  <option>Postdoctoral researcher</option>
+                  <option>Research / academic staff</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="f-dept">Department</label>
+                <input id="f-dept" name="dept" type="text" />
+              </div>
+            </div>
+
+            <label class="check">
+              <input type="checkbox" name="authorize" required />
+              <span>I authorize SAW to represent me for the purposes of collective bargaining. <span aria-hidden="true">*</span></span>
+            </label>
+
+            <button class="btn btn--primary btn--block" type="submit">✊&nbsp; Sign my card</button>
+            <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FAQ ============================ -->
+    <section class="section faq" id="faq">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__eyebrow">FAQ</p>
+          <h2 class="section__title">Questions, answered</h2>
+        </div>
+
+        <div class="faq__list reveal">
+          <details class="faq__item">
+            <summary>What exactly is a union authorization card?</summary>
+            <div class="faq__a"><p>It's a confidential statement that you want to be represented by SAW. When a strong majority of workers sign, we can ask the university to recognize our union voluntarily or petition for an election. Signing is the single most important thing you can do.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>Is it confidential? Will my advisor or PI find out?</summary>
+            <div class="faq__a"><p>Yes, it's confidential. Cards are seen only by the worker-led organizing committee, never by the university, your department, or your advisor. We ask you to use a personal email so nothing routes through university systems.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>Does signing cost anything? Do I have to pay dues now?</summary>
+            <div class="faq__a"><p>No. Signing a card costs nothing and does not obligate you to pay dues. Dues only ever come up <em>after</em> we've won a union and democratically voted to ratify a contract, and members decide that together.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>I'm an international worker on a visa. Is it safe for me to join?</summary>
+            <div class="faq__a"><p>Yes. Your legally protected right to organize does not depend on immigration status, and your card is confidential. In fact, a union contract is one of the strongest protections international workers can have, because it limits the university's ability to act against you without cause. See the <a href="#international">International Workers</a> section.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>What can a union actually change?</summary>
+            <div class="faq__a"><p>Almost anything about our working conditions: pay, healthcare, funding guarantees, workloads, time off, grievance and anti-harassment procedures, and protections for international workers. Instead of policies handed down to us, we negotiate a binding contract.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>Isn't my stipend/funding already fixed by the university?</summary>
+            <div class="faq__a"><p>What the university gives, it can change, usually without our input. A contract turns funding levels and protections into legally enforceable commitments that can't be cut unilaterally.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>Who is eligible to join?</summary>
+            <div class="faq__a"><p>Graduate workers, TAs, RAs, postdocs, and research/academic staff. If you're unsure whether you're included, <a href="#involved">reach out</a>, and we'll help you figure it out.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>How can I do more than sign?</summary>
+            <div class="faq__a"><p>Join the organizing committee, talk to coworkers in your department, and help collect cards. Tell us you're in via the <a href="#involved">Get Involved</a> section.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= GET INVOLVED / FINAL CTA ======================= -->
+    <section class="section involved" id="involved">
+      <div class="container">
+        <div class="involved__grid">
+          <div class="involved__copy reveal">
+            <h2 class="section__title section__title--light">Don't organize alone.</h2>
+            <p class="involved__lede">The campaign is only as strong as the people in it, and that means you. Sign your card, then take the next step.</p>
+            <div class="involved__actions">
+              <a class="btn btn--primary" href="#card">Sign your card</a>
+              <a class="btn btn--outline" href="#cardForm">Join the organizing committee</a>
+            </div>
+          </div>
+
+          <!-- CUSTOMIZE: connect this email signup to your list provider -->
+          <form class="involved__signup reveal" id="listForm" novalidate>
+            <h3>Get campaign updates</h3>
+            <p>Drop your personal email and we'll keep you posted. No spam, just the campaign.</p>
+            <div class="signup__row">
+              <input id="l-email" name="email" type="email" placeholder="you@gmail.com" aria-label="Your email" required />
+              <button class="btn btn--primary" type="submit">Keep me posted</button>
+            </div>
+            <p class="form__note" id="listNote" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <span class="brand brand--footer">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M7 10h2V5.5a1.25 1.25 0 0 1 2.5 0V10h.6V4.2a1.25 1.25 0 0 1 2.5 0V10h.6V5.6a1.2 1.2 0 0 1 2.4 0V13a6 6 0 0 1-6 6h-1.3a6 6 0 0 1-5.2-3l-1.6-2.8a1.3 1.3 0 0 1 2-1.6L7 12.8V10Z"/>
+              <rect x="6.6" y="2.2" width="11.8" height="2.2" rx="1.1"/>
+            </svg>
+          </span>
+          <span class="brand__text"><strong>SAW</strong><small>Stevens Academic Workers</small></span>
+        </span>
+        <p class="footer__aff">
+          <!-- CUSTOMIZE: [UNION AFFILIATION] -->
+          Organizing in affiliation with <strong>[your national union]</strong>.
+        </p>
+      </div>
+
+      <nav class="footer__col" aria-label="Site">
+        <h4>Campaign</h4>
+        <a href="#about">About us</a>
+        <a href="#issues">Why a union</a>
+        <a href="#international">International &amp; funding</a>
+        <a href="#voices">Voices</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="footer__col">
+        <h4>Get involved</h4>
+        <a href="#card">Sign your card</a>
+        <a href="#involved">Join the committee</a>
+        <!-- CUSTOMIZE: [CONTACT] -->
+        <a href="mailto:saw@example.org">saw@example.org</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Follow</h4>
+        <!-- CUSTOMIZE social links -->
+        <a href="#" rel="noopener">Instagram</a>
+        <a href="#" rel="noopener">Bluesky</a>
+        <a href="#" rel="noopener">Sign up for updates</a>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p class="footer__disclaimer">
+        SAW is a worker-led organizing campaign. It is independent of, and not
+        affiliated with or endorsed by, Stevens Institute of Technology. You have
+        a federally protected right to organize.
+      </p>
+      <p class="footer__copy">© <span id="year">2026</span> Stevens Academic Workers. Made by workers, for workers.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Your Union Card | SAW</title>
+  <meta name="description" content="Sign your union authorization card. Confidential, free, and the most important step." />
+  <meta name="theme-color" content="#16151a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23d32436'/%3E%3Ctext x='50' y='68' font-family='Arial' font-weight='900' font-size='52' fill='white' text-anchor='middle'%3E✊%3C/text%3E%3C/svg%3E" />
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="index.html" aria-label="SAW home">
+        <span class="brand__mark" aria-hidden="true">
+          <!-- Raised-fist solidarity mark -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M7 10h2V5.5a1.25 1.25 0 0 1 2.5 0V10h.6V4.2a1.25 1.25 0 0 1 2.5 0V10h.6V5.6a1.2 1.2 0 0 1 2.4 0V13a6 6 0 0 1-6 6h-1.3a6 6 0 0 1-5.2-3l-1.6-2.8a1.3 1.3 0 0 1 2-1.6L7 12.8V10Z"/>
+            <rect x="6.6" y="2.2" width="11.8" height="2.2" rx="1.1"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <strong>SAW</strong>
+          <small>Stevens Academic Workers</small>
+        </span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav__links" id="nav-links">
+        <a class="nav__link" href="about.html">About</a>
+        <a class="nav__link" href="why-a-union.html">Why a Union</a>
+        <a class="nav__link" href="international.html">International &amp; Funding</a>
+        <a class="nav__link" href="voices.html">Voices</a>
+        <a class="nav__link" href="committee.html">Committee</a>
+        <a class="nav__link" href="faq.html">FAQ</a>
+        <a class="nav__cta" href="sign-card.html" aria-current="page">Sign Your Card</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+<section class="section card-cta" id="card">
+      <div class="container">
+        <div class="card-cta__inner">
+          <div class="card-cta__copy reveal">
+            <p class="section__eyebrow section__eyebrow--light">Online Union Card</p>
+            <h2 class="section__title section__title--light">Sign your union card</h2>
+            <p class="card-cta__lede">
+              Signing a card is how we build the supermajority that lets us demand
+              recognition. It says: <em>"I want a union, and I authorize SAW to
+              represent me."</em> It is confidential, it costs nothing, and it does
+              not commit you to dues today.
+            </p>
+
+            <ol class="card-steps">
+              <li class="step"><span class="step__n">1</span><span>A majority of us sign cards.</span></li>
+              <li class="step"><span class="step__n">2</span><span>We demand voluntary recognition or file for an election.</span></li>
+              <li class="step"><span class="step__n">3</span><span>We bargain our first contract, together.</span></li>
+            </ol>
+
+            <p class="card-cta__assure">
+              🔒 <strong>Confidential.</strong> Your card is seen only by the worker
+              organizing committee. Use a <strong>personal</strong> email, not
+              your Stevens address.
+            </p>
+          </div>
+
+          <!-- CUSTOMIZE: This is a front-end demo form. For a live campaign, connect
+               it to your union's OFFICIAL secure card platform (Action Network, UAW/
+               AFT card system, etc.). See handler + note in script.js. -->
+          <form class="card-form" id="cardForm" novalidate>
+            <h3 class="card-form__title">Add your name</h3>
+
+            <div class="field">
+              <label for="f-name">Full name <span aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label for="f-email">Personal email <span aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@gmail.com (not @stevens.edu)" required />
+            </div>
+
+            <div class="field field--row">
+              <div>
+                <label for="f-role">Your role</label>
+                <select id="f-role" name="role">
+                  <option value="">Select…</option>
+                  <option>Graduate worker / PhD</option>
+                  <option>Teaching Assistant</option>
+                  <option>Research Assistant</option>
+                  <option>Postdoctoral researcher</option>
+                  <option>Research / academic staff</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="f-dept">Department</label>
+                <input id="f-dept" name="dept" type="text" />
+              </div>
+            </div>
+
+            <label class="check">
+              <input type="checkbox" name="authorize" required />
+              <span>I authorize SAW to represent me for the purposes of collective bargaining. <span aria-hidden="true">*</span></span>
+            </label>
+
+            <button class="btn btn--primary btn--block" type="submit">✊&nbsp; Sign my card</button>
+            <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <span class="brand brand--footer">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M7 10h2V5.5a1.25 1.25 0 0 1 2.5 0V10h.6V4.2a1.25 1.25 0 0 1 2.5 0V10h.6V5.6a1.2 1.2 0 0 1 2.4 0V13a6 6 0 0 1-6 6h-1.3a6 6 0 0 1-5.2-3l-1.6-2.8a1.3 1.3 0 0 1 2-1.6L7 12.8V10Z"/>
+              <rect x="6.6" y="2.2" width="11.8" height="2.2" rx="1.1"/>
+            </svg>
+          </span>
+          <span class="brand__text"><strong>SAW</strong><small>Stevens Academic Workers</small></span>
+        </span>
+        <p class="footer__aff">
+          <!-- CUSTOMIZE: [UNION AFFILIATION] -->
+          Organizing in affiliation with <strong>[your national union]</strong>.
+        </p>
+      </div>
+
+      <nav class="footer__col" aria-label="Site">
+        <h4>Campaign</h4>
+        <a href="about.html">About us</a>
+        <a href="why-a-union.html">Why a union</a>
+        <a href="international.html">International &amp; funding</a>
+        <a href="voices.html">Voices</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+
+      <div class="footer__col">
+        <h4>Get involved</h4>
+        <a href="sign-card.html">Sign your card</a>
+        <a href="get-involved.html">Join the committee</a>
+        <!-- CUSTOMIZE: [CONTACT] -->
+        <a href="mailto:saw@example.org">saw@example.org</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Follow</h4>
+        <!-- CUSTOMIZE social links -->
+        <a href="#" rel="noopener">Instagram</a>
+        <a href="#" rel="noopener">Bluesky</a>
+        <a href="#" rel="noopener">Sign up for updates</a>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p class="footer__disclaimer">
+        SAW is a worker-led organizing campaign. It is independent of, and not
+        affiliated with or endorsed by, Stevens Institute of Technology. You have
+        a federally protected right to organize.
+      </p>
+      <p class="footer__copy">© <span id="year">2026</span> Stevens Academic Workers. Made by workers, for workers.</p>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+</html>
