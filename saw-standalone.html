@@ -469,6 +469,11 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 @keyframes repulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
 @keyframes repulse-core { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
 
+/* ---------------------- Image logo (assets/logo.png) ---------------------- */
+/* When assets/logo.png exists it fills the tile; otherwise the svg shows. */
+.brand__mark { position: relative; overflow: hidden; }
+.brand__logo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+
 </style>
 <script>document.documentElement.classList.add('js');</script>
 
@@ -481,6 +486,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
     <nav class="nav container" aria-label="Primary">
       <a class="brand" href="#top" aria-label="SAW home">
         <span class="brand__mark" aria-hidden="true">
+          <img class="brand__logo" src="assets/logo.png" alt="" onerror="this.style.display='none'" />
           <!-- Open-hand repulsor mark -->
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <defs>
@@ -987,6 +993,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
       <div class="footer__brand">
         <span class="brand brand--footer">
           <span class="brand__mark" aria-hidden="true">
+          <img class="brand__logo" src="assets/logo.png" alt="" onerror="this.style.display='none'" />
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
               <defs>
                 <radialGradient id="rp2" cx="50%" cy="50%" r="50%">
