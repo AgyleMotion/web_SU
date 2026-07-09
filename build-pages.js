@@ -46,7 +46,7 @@ function mapHashesHome(html) {
 
 /* ---- shared header with active-tab state ---- */
 const NAV = [
-  { key: "international", label: "International &amp; Funding", href: "international.html" },
+  { key: "international", label: "International Students", href: "international.html" },
   { key: "committee", label: "Committee", href: "committee.html" },
   { key: "faq", label: "FAQ", href: "faq.html" },
 ];
@@ -117,7 +117,7 @@ const EXPLORE = `
           <h2 class="section__title">Explore</h2>
         </div>
         <div class="explore-grid">
-          <a class="explore-card" href="international.html"><h3>International &amp; funding &rarr;</h3><p>Protections for international workers and research funding.</p></a>
+          <a class="explore-card" href="international.html"><h3>International students &rarr;</h3><p>Protections for international students, visa security, and research funding.</p></a>
           <a class="explore-card" href="committee.html"><h3>Committee &rarr;</h3><p>Meet the workers leading the campaign.</p></a>
           <a class="explore-card" href="faq.html"><h3>FAQ &rarr;</h3><p>Confidential? Free? Safe for international workers? Answers here.</p></a>
         </div>
@@ -131,7 +131,7 @@ const HOME_MAIN = mapHashesHome(heroSection) + "\n" + marquee + "\n" +
 const PAGES = [
   { file: "index.html", active: "home", title: "SAW: Stevens Academic Workers",
     desc: "480 students and researchers at Stevens organizing a union for a real voice over pay, benefits, and working conditions.", main: HOME_MAIN },
-  { file: "international.html", active: "international", title: "International Workers & Research Funding | SAW",
+  { file: "international.html", active: "international", title: "International Students | SAW",
     desc: "How a union contract protects international workers and secures research funding.", main: mapHashes(S.international) + CTA_BAND },
   { file: "committee.html", active: "committee", title: "Organizing Committee | SAW",
     desc: "Meet the worker-led organizing committee behind the SAW campaign.", main: mapHashes(S.committee) + CTA_BAND },
