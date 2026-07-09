@@ -25,8 +25,8 @@ const S = {
 
 /* ---- rewrite in-page #anchors to real pages ---- */
 const HASH = {
-  "#about": "about.html", "#issues": "about.html#issues", "#international": "international.html",
-  "#voices": "about.html#voices", "#committee": "committee.html", "#faq": "faq.html",
+  "#about": "index.html", "#issues": "index.html#issues", "#international": "international.html",
+  "#voices": "index.html#voices", "#committee": "committee.html", "#faq": "faq.html",
   "#card": "sign-card.html", "#involved": "get-involved.html", "#hero": "index.html", "#top": "index.html",
 };
 function mapHashes(html) {
@@ -34,10 +34,18 @@ function mapHashes(html) {
   for (const [h, f] of Object.entries(HASH)) html = html.split('href="' + h + '"').join('href="' + f + '"');
   return html; // leaves href="#" and href="#main" untouched
 }
+// Home page carries the about/issues/voices content itself, so keep those as
+// same-page anchors and only send links to OTHER pages out to their files.
+function mapHashesHome(html) {
+  html = html.split('href="#cardForm"').join('href="sign-card.html#cardForm"');
+  const M = { "#international": "international.html", "#committee": "committee.html", "#faq": "faq.html",
+              "#card": "sign-card.html", "#involved": "get-involved.html" };
+  for (const [h, f] of Object.entries(M)) html = html.split('href="' + h + '"').join('href="' + f + '"');
+  return html;
+}
 
 /* ---- shared header with active-tab state ---- */
 const NAV = [
-  { key: "about", label: "About", href: "about.html" },
   { key: "international", label: "International &amp; Funding", href: "international.html" },
   { key: "committee", label: "Committee", href: "committee.html" },
   { key: "faq", label: "FAQ", href: "faq.html" },
@@ -51,7 +59,9 @@ function navLinksHtml(active) {
 }
 function header(active) {
   let h = parsedHeader.replace(/<div class="nav__links"[\s\S]*?<\/div>/, () => navLinksHtml(active));
-  h = h.split('href="#top"').join('href="index.html"');
+  // SAW brand is a plain, non-clickable label (not a link)
+  h = h.replace(/<a class="brand" href="#top"([^>]*)>/, '<span class="brand"$1>');
+  h = h.replace("</a>", "</span>");
   return h;
 }
 const footer = mapHashes(parsedFooter);
@@ -107,7 +117,6 @@ const EXPLORE = `
           <h2 class="section__title">Explore</h2>
         </div>
         <div class="explore-grid">
-          <a class="explore-card" href="about.html"><h3>About us &rarr;</h3><p>Who we are, what we're fighting for, and why coworkers are signing.</p></a>
           <a class="explore-card" href="international.html"><h3>International &amp; funding &rarr;</h3><p>Protections for international workers and research funding.</p></a>
           <a class="explore-card" href="committee.html"><h3>Committee &rarr;</h3><p>Meet the workers leading the campaign.</p></a>
           <a class="explore-card" href="faq.html"><h3>FAQ &rarr;</h3><p>Confidential? Free? Safe for international workers? Answers here.</p></a>
@@ -115,14 +124,13 @@ const EXPLORE = `
       </div>
     </section>`;
 
-const HOME_MAIN = mapHashes(heroSection) + "\n" + marquee + "\n" + EXPLORE + "\n" + CTA_BAND;
+const HOME_MAIN = mapHashesHome(heroSection) + "\n" + marquee + "\n" +
+  mapHashesHome(S.about + S.issues + S.voices) + "\n" + EXPLORE + "\n" + CTA_BAND;
 
 /* ---- pages ---- */
 const PAGES = [
   { file: "index.html", active: "home", title: "SAW: Stevens Academic Workers",
     desc: "480 students and researchers at Stevens organizing a union for a real voice over pay, benefits, and working conditions.", main: HOME_MAIN },
-  { file: "about.html", active: "about", title: "About | SAW",
-    desc: "Who we are, what we're fighting for, and why your coworkers are signing their union cards.", main: mapHashes(S.about + S.issues + S.voices) + CTA_BAND },
   { file: "international.html", active: "international", title: "International Workers & Research Funding | SAW",
     desc: "How a union contract protects international workers and secures research funding.", main: mapHashes(S.international) + CTA_BAND },
   { file: "committee.html", active: "committee", title: "Organizing Committee | SAW",
