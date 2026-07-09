@@ -42,7 +42,7 @@ const fontFace =
 
 // Commit to the poster identity: paint the wrapper the platform provides so the
 // look is identical regardless of the viewer's light/dark preference.
-const groundRule = "html,body{background:#faf6ef;margin:0;}body{color:#16151a;}";
+const groundRule = "html,body{background:#faf6ef;margin:0;}body{color:#302c36;}";
 
 const out =
   "<title>SAW: Stevens Academic Workers</title>\n" +

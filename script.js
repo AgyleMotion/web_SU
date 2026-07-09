@@ -137,10 +137,10 @@
       // TODO (CUSTOMIZE): submit to your union's official secure card system here.
       cardForm.innerHTML =
         '<div class="card-form__done">' +
-        '<div style="font-size:2.6rem;line-height:1">✊</div>' +
+        '<div style="font-size:2.4rem;line-height:1;color:var(--red)">✓</div>' +
         '<h3 class="card-form__title" style="margin-top:10px">Thank you, ' + escapeHtml(name.split(" ")[0]) + '!</h3>' +
         '<p style="color:var(--ink-soft)">Your card has been recorded by the organizing committee. ' +
-        'Keep it going. The best next step is to ask a coworker to sign too.</p>' +
+        'When you\'re ready, invite a coworker to do the same.</p>' +
         '<a class="btn btn--primary btn--block" href="#involved" style="margin-top:8px">Get more involved</a>' +
         '</div>';
       cardForm.classList.add("is-done");
@@ -157,7 +157,7 @@
       if (!emailRe.test(email)) { setNote(listNote, "Please enter a valid email.", "err"); return; }
       // TODO (CUSTOMIZE): connect to your email/list provider.
       listForm.elements["email"].value = "";
-      setNote(listNote, "You're on the list. Solidarity! ✊", "ok");
+      setNote(listNote, "You're on the list. Thanks for being here.", "ok");
     });
   }
 
