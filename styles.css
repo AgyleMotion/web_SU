@@ -457,3 +457,10 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
   .explore-grid { grid-template-columns: 1fr; }
   .cta-band__inner { flex-direction: column; align-items: flex-start; }
 }
+
+/* ---------------------- Brand repulsor light ---------------------- */
+.brand__mark { box-shadow: 0 0 16px rgba(255, 194, 51, 0.55), var(--shadow-sm); }
+.repulsor-halo { opacity: 0.85; animation: repulse 2.8s ease-in-out infinite; }
+.repulsor-core { animation: repulse-core 2.8s ease-in-out infinite; }
+@keyframes repulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+@keyframes repulse-core { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
