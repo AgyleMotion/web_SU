@@ -25,8 +25,8 @@ const S = {
 
 /* ---- rewrite in-page #anchors to real pages ---- */
 const HASH = {
-  "#about": "about.html", "#issues": "about.html#issues", "#international": "international.html",
-  "#voices": "about.html#voices", "#committee": "committee.html", "#faq": "faq.html",
+  "#about": "index.html#about", "#issues": "index.html#issues", "#international": "international.html",
+  "#voices": "index.html#voices", "#committee": "committee.html", "#faq": "faq.html",
   "#card": "sign-card.html", "#involved": "get-involved.html", "#hero": "index.html", "#top": "index.html",
 };
 function mapHashes(html) {
@@ -34,10 +34,18 @@ function mapHashes(html) {
   for (const [h, f] of Object.entries(HASH)) html = html.split('href="' + h + '"').join('href="' + f + '"');
   return html; // leaves href="#" and href="#main" untouched
 }
+// Home carries the about/issues/voices sections itself, so keep those as
+// same-page anchors and only send links to OTHER pages out to their files.
+function mapHashesHome(html) {
+  html = html.split('href="#cardForm"').join('href="sign-card.html#cardForm"');
+  const M = { "#international": "international.html", "#committee": "committee.html", "#faq": "faq.html",
+              "#card": "sign-card.html", "#involved": "get-involved.html" };
+  for (const [h, f] of Object.entries(M)) html = html.split('href="' + h + '"').join('href="' + f + '"');
+  return html;
+}
 /* ---- shared header with active-tab state ---- */
 const NAV = [
   { key: "home", label: "Home", href: "index.html" },
-  { key: "about", label: "About", href: "about.html" },
   { key: "international", label: "International students", href: "international.html" },
   { key: "committee", label: "Committee", href: "committee.html" },
   { key: "faq", label: "FAQ", href: "faq.html" },
@@ -109,7 +117,6 @@ const EXPLORE = `
           <h2 class="section__title">Explore</h2>
         </div>
         <div class="explore-grid">
-          <a class="explore-card" href="about.html"><h3>About us &rarr;</h3><p>Who we are, what we're working toward, and why we're signing.</p></a>
           <a class="explore-card" href="international.html"><h3>International students &rarr;</h3><p>Support for international students, visa security, and research funding.</p></a>
           <a class="explore-card" href="committee.html"><h3>Committee &rarr;</h3><p>Meet the people leading the campaign.</p></a>
           <a class="explore-card" href="faq.html"><h3>FAQ &rarr;</h3><p>Confidential? Free? Safe for international workers? Answers here.</p></a>
@@ -117,14 +124,13 @@ const EXPLORE = `
       </div>
     </section>`;
 
-const HOME_MAIN = mapHashes(heroSection) + "\n" + marquee + "\n" + EXPLORE + "\n" + CTA_BAND;
+const HOME_MAIN = mapHashesHome(heroSection) + "\n" + marquee + "\n" +
+  mapHashesHome(S.about + S.issues + S.voices) + "\n" + EXPLORE + "\n" + CTA_BAND;
 
 /* ---- pages ---- */
 const PAGES = [
   { file: "index.html", active: "home", title: "SAW: Stevens Academic Workers",
     desc: "480 students and researchers at Stevens organizing a union for a real voice over pay, benefits, and working conditions.", main: HOME_MAIN },
-  { file: "about.html", active: "about", title: "About | SAW",
-    desc: "Who we are, what we're working toward, and why we're signing our union cards.", main: mapHashes(S.about + S.issues + S.voices) + CTA_BAND },
   { file: "international.html", active: "international", title: "International students | SAW",
     desc: "How a union contract protects international workers and secures research funding.", main: mapHashes(S.international) + CTA_BAND },
   { file: "committee.html", active: "committee", title: "Organizing committee | SAW",
@@ -139,4 +145,12 @@ const PAGES = [
 
 let n = 0;
 for (const p of PAGES) { fs.writeFileSync(DIR + "/" + p.file, layout(p)); n++; console.log("wrote", p.file); }
-console.log("done:", n, "pages");
+
+// about.html redirects to the merged home page, so old links keep working
+fs.writeFileSync(DIR + "/about.html",
+  '<!DOCTYPE html>\n<html lang="en"><head><meta charset="UTF-8" />\n' +
+  '<meta http-equiv="refresh" content="0; url=index.html#about" />\n' +
+  '<title>About | SAW</title>\n' +
+  '</head><body><p>The about page moved to the <a href="index.html#about">home page</a>.</p></body></html>\n');
+console.log("wrote about.html (redirect)");
+console.log("done:", n, "pages + redirect");
