@@ -66,7 +66,7 @@ function header(active) {
 }
 const footer = mapHashes(parsedFooter);
 
-const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%2398303d'/%3E%3Ctext x='50' y='68' font-family='Arial' font-weight='900' font-size='52' fill='white' text-anchor='middle'%3E✊%3C/text%3E%3C/svg%3E";
+const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%236a0c0b'/%3E%3Ctext x='50' y='68' font-family='Arial' font-weight='900' font-size='52' fill='white' text-anchor='middle'%3E✊%3C/text%3E%3C/svg%3E";
 
 function layout({ title, desc, active, main }) {
   return `<!DOCTYPE html>
