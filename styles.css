@@ -5,8 +5,8 @@
    ========================================================================== */
 
 :root {
-  --red:        #dc1f2e;   /* vivid red / primary accent */
-  --red-deep:   #b81725;
+  --red:        #98303d;   /* vivid red / primary accent */
+  --red-deep:   #7c2531;
   --ink:        #111113;   /* near-black */
   --ink-soft:   #44444a;
   --paper:      #ffffff;   /* clean white */
@@ -145,7 +145,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
   position: absolute; inset: 0; z-index: 0;
   background:
     radial-gradient(60% 70% at 85% 5%, rgba(255,194,51,.14), transparent 60%),
-    radial-gradient(55% 60% at 5% 95%, rgba(220,31,46,.07), transparent 55%),
+    radial-gradient(55% 60% at 5% 95%, rgba(152,48,61,.07), transparent 55%),
     var(--paper);
 }
 /* subtle diagonal poster stripes */
@@ -156,7 +156,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 .hero__eyebrow {
   display: inline-block; margin: 0 0 18px; font-weight: 700; letter-spacing: 0.3px;
   font-size: 0.85rem; color: var(--red-deep);
-  background: rgba(220,31,46,.08); padding: 7px 14px; border-radius: 999px;
+  background: rgba(152,48,61,.08); padding: 7px 14px; border-radius: 999px;
 }
 .hero__title {
   font-family: var(--font-display); font-weight: 400;
@@ -219,10 +219,10 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
   padding: 28px 26px 26px; box-shadow: var(--shadow-sm);
   transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), border-color 0.22s var(--ease);
 }
-.issue:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(220,31,46,.35); }
+.issue:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(152,48,61,.35); }
 .issue__icon {
   display: grid; place-items: center; width: 54px; height: 54px; font-size: 1.6rem;
-  background: rgba(220,31,46,.08); border-radius: 14px; margin-bottom: 16px;
+  background: rgba(152,48,61,.08); border-radius: 14px; margin-bottom: 16px;
 }
 .issue__title { font-size: 1.22rem; margin: 0 0 8px; letter-spacing: -0.2px; }
 .issue__desc { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
@@ -256,7 +256,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 }
 .quote::before {
   content: "\201C"; position: absolute; top: 8px; right: 22px;
-  font-family: var(--font-display); font-size: 4.5rem; color: rgba(220,31,46,.14); line-height: 1;
+  font-family: var(--font-display); font-size: 4.5rem; color: rgba(152,48,61,.14); line-height: 1;
 }
 .quote__text { margin: 0 0 22px; font-size: 1.06rem; color: var(--ink); font-weight: 500; }
 .quote__person { display: flex; align-items: center; gap: 12px; }
@@ -275,13 +275,13 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
   padding: 32px 24px 26px; text-align: center; box-shadow: var(--shadow-sm);
   transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), border-color 0.22s var(--ease);
 }
-.leader:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(220,31,46,.3); }
+.leader:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(152,48,61,.3); }
 .leader__photo {
   position: relative; width: 116px; height: 116px; margin: 0 auto 18px;
   border-radius: 50%; overflow: hidden; display: grid; place-items: center;
   background: var(--ink); color: #fff;
   font-family: var(--font-display); font-size: 2.1rem; letter-spacing: 1px;
-  box-shadow: 0 0 0 4px var(--white), 0 0 0 6px rgba(220, 31, 46, 0.3);
+  box-shadow: 0 0 0 4px var(--white), 0 0 0 6px rgba(152, 48, 61, 0.3);
 }
 .leader__photo::before { content: attr(data-initials); }
 .leader__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -321,7 +321,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
   font: inherit; color: var(--ink); background: var(--paper); transition: border-color 0.18s var(--ease), box-shadow 0.18s var(--ease);
 }
 .field input:focus, .field select:focus, .signup__row input:focus {
-  outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(220,31,46,.14); background: #fff;
+  outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(152,48,61,.14); background: #fff;
 }
 .field--row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .field--row > div { margin: 0; }
@@ -434,7 +434,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
   padding: 26px 24px; box-shadow: var(--shadow-sm);
   transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), border-color 0.2s var(--ease);
 }
-.explore-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(220, 31, 46, 0.35); }
+.explore-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(152, 48, 61, 0.35); }
 .explore-card h3 { margin: 0; font-size: 1.2rem; letter-spacing: -0.2px; }
 .explore-card p { margin: 0; color: var(--ink-soft); font-size: 0.96rem; }
 
