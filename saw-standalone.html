@@ -431,7 +431,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 
 /* Home "Explore" hub grid */
 .explore-section { background: var(--paper-2); }
-.explore-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.explore-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
 .explore-card {
   display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: var(--ink);
   background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
