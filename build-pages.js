@@ -25,8 +25,8 @@ const S = {
 
 /* ---- rewrite in-page #anchors to real pages ---- */
 const HASH = {
-  "#about": "about.html", "#issues": "why-a-union.html", "#international": "international.html",
-  "#voices": "voices.html", "#committee": "committee.html", "#faq": "faq.html",
+  "#about": "about.html", "#issues": "about.html#issues", "#international": "international.html",
+  "#voices": "about.html#voices", "#committee": "committee.html", "#faq": "faq.html",
   "#card": "sign-card.html", "#involved": "get-involved.html", "#hero": "index.html", "#top": "index.html",
 };
 function mapHashes(html) {
@@ -38,9 +38,7 @@ function mapHashes(html) {
 /* ---- shared header with active-tab state ---- */
 const NAV = [
   { key: "about", label: "About", href: "about.html" },
-  { key: "issues", label: "Why a Union", href: "why-a-union.html" },
   { key: "international", label: "International &amp; Funding", href: "international.html" },
-  { key: "voices", label: "Voices", href: "voices.html" },
   { key: "committee", label: "Committee", href: "committee.html" },
   { key: "faq", label: "FAQ", href: "faq.html" },
 ];
@@ -109,10 +107,8 @@ const EXPLORE = `
           <h2 class="section__title">Explore</h2>
         </div>
         <div class="explore-grid">
-          <a class="explore-card" href="about.html"><h3>About us &rarr;</h3><p>Who we are and why we're coming together.</p></a>
-          <a class="explore-card" href="why-a-union.html"><h3>Why a union &rarr;</h3><p>What we're organizing to win in a real contract.</p></a>
+          <a class="explore-card" href="about.html"><h3>About us &rarr;</h3><p>Who we are, what we're fighting for, and why coworkers are signing.</p></a>
           <a class="explore-card" href="international.html"><h3>International &amp; funding &rarr;</h3><p>Protections for international workers and research funding.</p></a>
-          <a class="explore-card" href="voices.html"><h3>Voices &rarr;</h3><p>Why your coworkers are signing their cards.</p></a>
           <a class="explore-card" href="committee.html"><h3>Committee &rarr;</h3><p>Meet the workers leading the campaign.</p></a>
           <a class="explore-card" href="faq.html"><h3>FAQ &rarr;</h3><p>Confidential? Free? Safe for international workers? Answers here.</p></a>
         </div>
@@ -125,14 +121,10 @@ const HOME_MAIN = mapHashes(heroSection) + "\n" + marquee + "\n" + EXPLORE + "\n
 const PAGES = [
   { file: "index.html", active: "home", title: "SAW: Stevens Academic Workers",
     desc: "480 students and researchers at Stevens organizing a union for a real voice over pay, benefits, and working conditions.", main: HOME_MAIN },
-  { file: "about.html", active: "about", title: "About Us | SAW",
-    desc: "Who we are: the graduate workers, TAs, RAs, postdocs, and research staff organizing at Stevens.", main: mapHashes(S.about) + CTA_BAND },
-  { file: "why-a-union.html", active: "issues", title: "Why a Union | SAW",
-    desc: "What we're fighting for: fair pay, real benefits, job security, and protections we can win in a contract.", main: mapHashes(S.issues) + CTA_BAND },
+  { file: "about.html", active: "about", title: "About | SAW",
+    desc: "Who we are, what we're fighting for, and why your coworkers are signing their union cards.", main: mapHashes(S.about + S.issues + S.voices) + CTA_BAND },
   { file: "international.html", active: "international", title: "International Workers & Research Funding | SAW",
     desc: "How a union contract protects international workers and secures research funding.", main: mapHashes(S.international) + CTA_BAND },
-  { file: "voices.html", active: "voices", title: "Voices | SAW",
-    desc: "Why researchers and academic workers at Stevens are signing their union cards.", main: mapHashes(S.voices) + CTA_BAND },
   { file: "committee.html", active: "committee", title: "Organizing Committee | SAW",
     desc: "Meet the worker-led organizing committee behind the SAW campaign.", main: mapHashes(S.committee) + CTA_BAND },
   { file: "faq.html", active: "faq", title: "FAQ | SAW",

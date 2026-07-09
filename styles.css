@@ -119,13 +119,14 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 
 .nav__links { display: flex; align-items: center; gap: 8px; }
 .nav__link {
-  color: var(--ink); text-decoration: none; font-weight: 600; font-size: 0.95rem;
+  color: var(--ink); text-decoration: none; font-weight: 600; font-size: 0.95rem; white-space: nowrap;
   padding: 9px 12px; border-radius: 8px; transition: background 0.18s var(--ease), color 0.18s var(--ease);
 }
 .nav__link:hover { background: rgba(22,21,26,.06); }
 .nav__cta {
   margin-left: 6px; background: var(--red); color: #fff; text-decoration: none;
   font-weight: 800; padding: 11px 18px; border-radius: 999px; font-size: 0.95rem;
+  white-space: nowrap; flex: none;
   box-shadow: var(--shadow-sm); transition: transform 0.18s var(--ease), background 0.18s var(--ease);
 }
 .nav__cta:hover { background: var(--red-deep); transform: translateY(-2px); }
