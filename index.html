@@ -19,7 +19,7 @@
     <nav class="nav container" aria-label="Primary">
       <span class="brand" aria-label="SAW home">
         <span class="brand__mark" aria-hidden="true">
-          <img class="brand__logo" src="assets/logo.png" alt="" onerror="this.style.display='none'" />
+          <img class="brand__logo" src="assets/logo.png" alt="" onload="this.closest('.brand__mark').classList.add('has-logo')" onerror="this.style.display='none'" />
           <!-- Open-hand repulsor mark -->
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <defs>
@@ -263,7 +263,7 @@
       <div class="footer__brand">
         <span class="brand brand--footer">
           <span class="brand__mark" aria-hidden="true">
-          <img class="brand__logo" src="assets/logo.png" alt="" onerror="this.style.display='none'" />
+          <img class="brand__logo" src="assets/logo.png" alt="" onload="this.closest('.brand__mark').classList.add('has-logo')" onerror="this.style.display='none'" />
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
               <defs>
                 <radialGradient id="rp2" cx="50%" cy="50%" r="50%">
