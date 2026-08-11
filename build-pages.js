@@ -59,7 +59,7 @@ function navLinksHtml(active) {
 }
 function header(active) {
   let h = parsedHeader.replace(/<div class="nav__links"[\s\S]*?<\/div>/, () => navLinksHtml(active));
-  // SAW brand is a plain, non-clickable label (not a link)
+  // ASTRA brand is a plain, non-clickable label (not a link)
   h = h.replace(/<a class="brand" href="#top"([^>]*)>/, '<span class="brand"$1>');
   h = h.replace("</a>", "</span>");
   return h;
@@ -129,17 +129,17 @@ const HOME_MAIN = mapHashesHome(heroSection) + "\n" + marquee + "\n" +
 
 /* ---- pages ---- */
 const PAGES = [
-  { file: "index.html", active: "home", title: "SAW: Stevens Academic Workers",
-    desc: "480 students and researchers at Stevens organizing a union for a real voice over pay, benefits, and working conditions.", main: HOME_MAIN },
-  { file: "international.html", active: "international", title: "International students | SAW",
+  { file: "index.html", active: "home", title: "ASTRA: Association of Stevens Teaching and Research Assistants",
+    desc: "441 PhD students at Stevens organizing a union for a real voice over pay, benefits, and working conditions.", main: HOME_MAIN },
+  { file: "international.html", active: "international", title: "International students | ASTRA",
     desc: "How a union contract protects international workers and secures research funding.", main: mapHashes(S.international) + CTA_BAND },
-  { file: "committee.html", active: "committee", title: "Organizing committee | SAW",
-    desc: "Meet the worker-led organizing committee behind the SAW campaign.", main: mapHashes(S.committee) + CTA_BAND },
-  { file: "faq.html", active: "faq", title: "FAQ | SAW",
+  { file: "committee.html", active: "committee", title: "Organizing committee | ASTRA",
+    desc: "Meet the worker-led organizing committee behind the ASTRA campaign.", main: mapHashes(S.committee) + CTA_BAND },
+  { file: "faq.html", active: "faq", title: "FAQ | ASTRA",
     desc: "Answers about union cards, confidentiality, dues, eligibility, and international workers.", main: mapHashes(S.faq) + CTA_BAND },
-  { file: "sign-card.html", active: "card", title: "Sign your union card | SAW",
+  { file: "sign-card.html", active: "card", title: "Sign your union card | ASTRA",
     desc: "Sign your union authorization card. Confidential, free, and the most important step.", main: mapHashes(S.card) },
-  { file: "get-involved.html", active: "involved", title: "Get involved | SAW",
+  { file: "get-involved.html", active: "involved", title: "Get involved | ASTRA",
     desc: "Sign your card, join the organizing committee, and get campaign updates.", main: mapHashes(S.involved) },
 ];
 
@@ -150,7 +150,7 @@ for (const p of PAGES) { fs.writeFileSync(DIR + "/" + p.file, layout(p)); n++; c
 fs.writeFileSync(DIR + "/about.html",
   '<!DOCTYPE html>\n<html lang="en"><head><meta charset="UTF-8" />\n' +
   '<meta http-equiv="refresh" content="0; url=index.html#about" />\n' +
-  '<title>About | SAW</title>\n' +
+  '<title>About | ASTRA</title>\n' +
   '</head><body><p>The about page moved to the <a href="index.html#about">home page</a>.</p></body></html>\n');
 console.log("wrote about.html (redirect)");
 console.log("done:", n, "pages + redirect");

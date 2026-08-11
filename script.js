@@ -1,5 +1,5 @@
 /* =============================================================================
-   SAW - interactions
+   ASTRA - interactions
    Progressive enhancement: the site is fully usable without JS. This adds the
    mobile menu, scroll reveals, stat count-up, header shadow, and friendly
    client-side form handling.

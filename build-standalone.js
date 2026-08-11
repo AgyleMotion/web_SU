@@ -45,7 +45,7 @@ const fontFace =
 const groundRule = "html,body{background:#ffffff;margin:0;}body{color:#111113;}";
 
 const out =
-  "<title>SAW: Stevens Academic Workers</title>\n" +
+  "<title>ASTRA: Association of Stevens Teaching and Research Assistants</title>\n" +
   "<style>\n" + fontFace + "\n" + groundRule + "\n" + css + "\n</style>\n" +
   "<script>document.documentElement.classList.add('js');</script>\n" +
   bodyInner + "\n" +

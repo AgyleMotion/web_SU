@@ -1,4 +1,4 @@
-# SAW — Stevens Academic Workers (campaign site)
+# ASTRA — Association of Stevens Teaching and Research Assistants (campaign site)
 
 A **multi-page** unionization campaign website modeled on academic-worker
 organizing drives (e.g. Drexel DRAW, Student Researchers United-UAW). Plain
@@ -24,7 +24,7 @@ union-website/
 ├── onepage.html        ← the original single-page version (kept as the source
 │                          for the hosted Artifact + for regenerating pages)
 ├── build-pages.js      ← regenerates all the pages above FROM onepage.html
-└── saw-standalone.html← one self-contained file (inlined font/CSS/JS)
+└── astra-standalone.html← one self-contained file (inlined font/CSS/JS)
 ```
 
 ## Editing
@@ -46,7 +46,7 @@ node build-pages.js     # rewrites index.html + every tab page from onepage.html
 
 | What | Where |
 |------|-------|
-| Campaign name / acronym (`SAW`, `Stevens Academic Workers`) | find/replace across all `.html` (and `onepage.html`) |
+| Campaign name / acronym (`ASTRA`, `Association of Stevens Teaching and Research Assistants`) | find/replace across all `.html` (and `onepage.html`) |
 | Brand colors | `styles.css` → `:root` tokens (`--red`, `--gold`, …) |
 | Headcount / % stats | `index.html` + `onepage.html` → `.hero__stats` (`data-count`) |
 | Real testimonials | `voices.html` (samples now) |
@@ -84,7 +84,7 @@ python3 -m http.server 8000   # then visit http://localhost:8000
    cd union-website
    git init
    git add -A
-   git commit -m "SAW campaign site"
+   git commit -m "ASTRA campaign site"
    git branch -M main
    git remote add origin https://github.com/<you>/sraw-site.git
    git push -u origin main
