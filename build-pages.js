@@ -64,9 +64,8 @@ function navLinksHtml(active) {
 }
 function header(active) {
   let h = parsedHeader.replace(/<div class="nav__links"[\s\S]*?<\/div>/, () => navLinksHtml(active));
-  // ASTRA brand is a plain, non-clickable label (not a link)
-  h = h.replace(/<a class="brand" href="#top"([^>]*)>/, '<span class="brand"$1>');
-  h = h.replace("</a>", "</span>");
+  // ASTRA brand links to the home page
+  h = h.replace('<a class="brand" href="#top"', '<a class="brand" href="index.html"');
   return h;
 }
 const footer = mapHashes(parsedFooter);
