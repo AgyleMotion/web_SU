@@ -20,7 +20,7 @@ const grab = (id) => {
 const S = {
   about: grab("about"), issues: grab("issues"), international: grab("international"),
   voices: grab("voices"), committee: grab("committee"), faq: grab("faq"),
-  card: grab("card"), involved: grab("involved"),
+  card: grab("card"), involved: grab("involved"), compare: grab("compare"),
 };
 
 /* ---- rewrite in-page #anchors to real pages ---- */
@@ -125,7 +125,7 @@ const EXPLORE = `
     </section>`;
 
 const HOME_MAIN = mapHashesHome(heroSection) + "\n" + marquee + "\n" +
-  mapHashesHome(S.about + S.issues + S.voices) + "\n" + EXPLORE + "\n" + CTA_BAND;
+  mapHashesHome(S.about + S.issues + S.compare + S.voices) + "\n" + EXPLORE + "\n" + CTA_BAND;
 
 /* ---- pages ---- */
 const PAGES = [
