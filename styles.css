@@ -503,7 +503,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 .site-header .brand { display: inline-flex; align-items: center; column-gap: 12px; }
 .site-header .brand__mark { width: 52px; height: 52px; }
 .site-header .brand__mark.has-logo { border-radius: 0; overflow: visible; }
-.site-header .brand__text strong { font-family: var(--font-brand); font-size: 1.6rem; font-weight: 600; letter-spacing: 4px; }
+.site-header .brand__text strong { font-family: var(--font-brand); font-size: 1.6rem; font-weight: 600; letter-spacing: 4px; position: relative; top: -7px; }
 
 /* --------------------- Meet Lincoln --------------------- */
 .lincoln__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: center; }
