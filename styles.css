@@ -253,12 +253,13 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 .quote {
   margin: 0; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 30px 28px; box-shadow: var(--shadow-sm); position: relative;
+  display: flex; flex-direction: column;
 }
 .quote::before {
   content: "\201C"; position: absolute; top: 8px; right: 22px;
   font-family: var(--font-display); font-size: 4.5rem; color: rgba(106,12,11,.14); line-height: 1;
 }
-.quote__text { margin: 0 0 22px; font-size: 1.06rem; color: var(--ink); font-weight: 500; }
+.quote__text { margin: 0 0 22px; font-size: 0.98rem; line-height: 1.55; color: var(--ink); font-weight: 500; flex: 1 1 auto; }
 .quote__person { display: flex; align-items: center; gap: 12px; }
 .quote__avatar {
   display: grid; place-items: center; width: 46px; height: 46px; flex: none;
