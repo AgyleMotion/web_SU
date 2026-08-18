@@ -497,3 +497,11 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 .dept::before { content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 4px; background: var(--red); border-radius: 4px; }
 .dept h3 { margin: 0 0 4px; font-size: 0.95rem; font-weight: 700; color: var(--red-deep); }
 .dept p { margin: 0; color: var(--ink-soft); font-size: 0.96rem; }
+
+/* --------- Header brand lockup: emblem + ASTRA on top, full name below both --------- */
+.site-header .brand { display: grid; grid-template-columns: auto 1fr; grid-template-areas: "mark acr" "full full"; align-items: center; column-gap: 12px; row-gap: 2px; max-width: 420px; }
+.site-header .brand__mark { grid-area: mark; }
+.site-header .brand__mark.has-logo { border-radius: 0; overflow: visible; }
+.site-header .brand__text { display: contents; }
+.site-header .brand__text strong { grid-area: acr; font-size: 1.5rem; align-self: center; }
+.site-header .brand__text small { grid-area: full; line-height: 1.3; }
