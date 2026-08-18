@@ -460,7 +460,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 }
 
 /* ---------------------- Brand repulsor light ---------------------- */
-.brand__mark { box-shadow: 0 0 18px rgba(143, 216, 255, 0.7), var(--shadow-sm); }
+.brand__mark { box-shadow: var(--shadow-sm); }
 .repulsor-halo { opacity: 0.85; animation: repulse 2.8s ease-in-out infinite; }
 .repulsor-core { animation: repulse-core 2.8s ease-in-out infinite; }
 @keyframes repulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
