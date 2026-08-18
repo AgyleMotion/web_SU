@@ -16,6 +16,7 @@ html,body{background:#ffffff;margin:0;}body{color:#111113;}
   --paper:      #ffffff;   /* clean white */
   --paper-2:    #f5f5f7;   /* light grey for alternating sections */
   --gold:       #ffc233;   /* vivid amber / highlight */
+  --green:      #1a8f4a;   /* positive / with-a-union */
   --muted:      #6e6e76;
   --line:       rgba(17, 17, 19, 0.12);
   --white:      #ffffff;
@@ -484,14 +485,14 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 .compare { background: var(--paper); }
 .compare__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
 .compare__card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px; box-shadow: var(--shadow-sm); }
-.compare__card--with { border-color: rgba(106, 12, 11, 0.35); box-shadow: var(--shadow); }
+.compare__card--with { border-color: rgba(26, 143, 74, 0.35); box-shadow: var(--shadow); }
 .compare__card h3 { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; margin: 0 0 16px; letter-spacing: -0.2px; }
 .compare__mark { display: inline-grid; place-items: center; width: 26px; height: 26px; flex: none; border-radius: 50%; font-size: 0.9rem; font-weight: 800; background: rgba(17,17,19,.08); color: var(--muted); }
-.compare__mark--yes { background: var(--red); color: #fff; }
+.compare__mark--yes { background: var(--green); color: #fff; }
 .compare__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .compare__list li { position: relative; padding-left: 18px; color: var(--ink-soft); font-size: 0.98rem; }
 .compare__list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
-.compare__card--with .compare__list li::before { background: var(--red); }
+.compare__card--with .compare__list li::before { background: var(--green); }
 @media (max-width: 720px) { .compare__grid { grid-template-columns: 1fr; } }
 
 /* --------------------- Departments involved --------------------- */
