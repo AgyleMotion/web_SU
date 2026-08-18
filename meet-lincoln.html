@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Organizing committee | ASTRA</title>
-  <meta name="description" content="Meet the worker-led organizing committee behind the ASTRA campaign." />
+  <title>Meet Lincoln | ASTRA</title>
+  <meta name="description" content="Meet Lincoln, ASTRA's campaign dog and chief morale officer. Give him some love." />
   <meta name="theme-color" content="#ffffff" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,37 +56,63 @@
       <div class="nav__links" id="nav-links">
         <a class="nav__link" href="index.html">Home</a>
         <a class="nav__link" href="international.html">International students</a>
-        <a class="nav__link" href="committee.html" aria-current="page">Committee</a>
+        <a class="nav__link" href="committee.html">Committee</a>
         <a class="nav__link" href="faq.html">FAQ</a>
-        <a class="nav__link" href="meet-lincoln.html">Meet Lincoln</a>
+        <a class="nav__link" href="meet-lincoln.html" aria-current="page">Meet Lincoln</a>
         <a class="nav__cta" href="sign-card.html">Sign your card</a>
       </div>
     </nav>
   </header>
   <main id="main">
-<section class="section committee" id="committee">
+<section class="section lincoln" id="lincoln">
       <div class="container">
         <div class="section__head reveal">
-          <p class="section__eyebrow">Our people</p>
-          <h2 class="section__title">Organizing across departments</h2>
-          <p class="section__intro">Some of the graduate workers building ASTRA-UAW, department by department.</p>
+          <p class="section__eyebrow">Campaign dog</p>
+          <h2 class="section__title">Meet Lincoln</h2>
+          <p class="section__intro">Every good campaign needs a good boy. Lincoln keeps morale high on the long organizing days.</p>
         </div>
-
-        <div class="dept-grid">
-          <div class="dept reveal"><h3>Mechanical Engineering</h3><p>Nima Kalantari, Jett Langhorn, Mohamed Eraky</p></div>
-          <div class="dept reveal"><h3>Electrical &amp; Computer Engineering</h3><p>Sakib</p></div>
-          <div class="dept reveal"><h3>Biomedical Engineering</h3><p>Sara, Sophie, Zahava</p></div>
-          <div class="dept reveal"><h3>Civil Engineering</h3><p>Ahmed Shalaby</p></div>
-          <div class="dept reveal"><h3>Computer Science</h3><p>Adarsh</p></div>
-          <div class="dept reveal"><h3>Mathematical Sciences</h3><p>Charlie</p></div>
-          <div class="dept reveal"><h3>Chemistry &amp; Chemical Biology</h3><p>Gabe Castro</p></div>
-          <div class="dept reveal"><h3>Physics</h3><p>Daniel Lopez</p></div>
-          <div class="dept reveal"><h3>Systems Engineering</h3><p>Elia, Amirezza</p></div>
-          <div class="dept reveal"><h3>Business</h3><p>Sai, Marina</p></div>
+        <div class="lincoln__grid">
+          <figure class="lincoln__photo reveal">
+            <img src="assets/lincoln.jpg" alt="Lincoln, a happy white labradoodle, standing on a sunny forest trail" loading="lazy" />
+          </figure>
+          <div class="lincoln__card reveal">
+            <p class="lead">This is Lincoln.</p>
+            <p>He is ASTRA's unofficial morale officer, chief tail-wagger, and a firm believer that everyone deserves a good walk, a fair contract, and plenty of treats.</p>
+            <p>Show Lincoln some love. Tap the heart.</p>
+            <div class="heart">
+              <button class="heart__btn" id="heartBtn" type="button" aria-label="Give Lincoln some love">
+                <span class="heart__icon" aria-hidden="true">&#10084;</span>
+              </button>
+              <p class="heart__count"><strong id="heartCount">0</strong> <span>hearts for Lincoln</span></p>
+            </div>
+          </div>
         </div>
-
-        <p class="committee__note reveal">Not listed here yet? <a href="get-involved.html">Get involved &rarr;</a></p>
       </div>
+      <script>
+        (function () {
+          var btn = document.getElementById('heartBtn');
+          var out = document.getElementById('heartCount');
+          if (!btn || !out) return;
+          var KEY = 'lincoln-hearts';
+          var n = parseInt(localStorage.getItem(KEY) || '0', 10);
+          if (isNaN(n)) n = 0;
+          out.textContent = n;
+          btn.addEventListener('click', function () {
+            n += 1;
+            localStorage.setItem(KEY, String(n));
+            out.textContent = n;
+            btn.classList.remove('is-pop');
+            void btn.offsetWidth;
+            btn.classList.add('is-pop');
+            var f = document.createElement('span');
+            f.className = 'heart__float';
+            f.setAttribute('aria-hidden', 'true');
+            f.innerHTML = '&#10084;';
+            btn.appendChild(f);
+            setTimeout(function () { f.remove(); }, 900);
+          });
+        })();
+      </script>
     </section>
     <section class="cta-band">
       <div class="container cta-band__inner">

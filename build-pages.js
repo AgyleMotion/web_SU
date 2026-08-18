@@ -21,6 +21,7 @@ const S = {
   about: grab("about"), issues: grab("issues"), international: grab("international"),
   voices: grab("voices"), committee: grab("committee"), faq: grab("faq"),
   card: grab("card"), involved: grab("involved"), compare: grab("compare"),
+  lincoln: grab("lincoln"),
 };
 
 /* ---- rewrite in-page #anchors to real pages ---- */
@@ -49,6 +50,7 @@ const NAV = [
   { key: "international", label: "International students", href: "international.html" },
   { key: "committee", label: "Committee", href: "committee.html" },
   { key: "faq", label: "FAQ", href: "faq.html" },
+  { key: "lincoln", label: "Meet Lincoln", href: "meet-lincoln.html" },
 ];
 function navLinksHtml(active) {
   const links = NAV.map((i) =>
@@ -141,6 +143,8 @@ const PAGES = [
     desc: "Sign your union authorization card. Confidential, free, and the most important step.", main: mapHashes(S.card) },
   { file: "get-involved.html", active: "involved", title: "Get involved | ASTRA",
     desc: "Sign your card, join the organizing committee, and get campaign updates.", main: mapHashes(S.involved) },
+  { file: "meet-lincoln.html", active: "lincoln", title: "Meet Lincoln | ASTRA",
+    desc: "Meet Lincoln, ASTRA's campaign dog and chief morale officer. Give him some love.", main: mapHashes(S.lincoln) + CTA_BAND },
 ];
 
 let n = 0;

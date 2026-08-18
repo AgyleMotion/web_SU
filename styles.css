@@ -503,3 +503,23 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 .site-header .brand__mark { width: 52px; height: 52px; }
 .site-header .brand__mark.has-logo { border-radius: 0; overflow: visible; }
 .site-header .brand__text strong { font-size: 1.55rem; }
+
+/* --------------------- Meet Lincoln --------------------- */
+.lincoln__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: center; }
+.lincoln__photo { margin: 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.lincoln__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.lincoln__card .lead { font-size: 1.25rem; font-weight: 700; margin: 0 0 10px; }
+.lincoln__card p { color: var(--ink-soft); }
+.heart { margin-top: 24px; display: flex; align-items: center; gap: 16px; }
+.heart__btn { position: relative; width: 74px; height: 74px; flex: none; border: none; border-radius: 50%; cursor: pointer; background: var(--red); color: #fff; box-shadow: var(--shadow); display: grid; place-items: center; overflow: visible; transition: transform .12s ease, background .2s ease; }
+.heart__btn:hover { background: var(--red-deep); transform: translateY(-2px); }
+.heart__btn:active { transform: scale(.94); }
+.heart__icon { font-size: 2rem; line-height: 1; }
+.heart__btn.is-pop { animation: heartpop .35s ease; }
+@keyframes heartpop { 0% { transform: scale(1); } 40% { transform: scale(1.28); } 100% { transform: scale(1); } }
+.heart__count { margin: 0; }
+.heart__count strong { font-family: var(--font-display); font-size: 2.1rem; color: var(--red); display: block; line-height: 1; }
+.heart__count span { color: var(--muted); font-size: .95rem; }
+.heart__float { position: absolute; left: 50%; top: 4px; transform: translateX(-50%); color: #fff; font-size: 1.4rem; pointer-events: none; animation: heartfloat .9s ease-out forwards; }
+@keyframes heartfloat { 0% { opacity: 1; transform: translate(-50%, 0) scale(.8); } 100% { opacity: 0; transform: translate(-50%, -64px) scale(1.3); } }
+@media (max-width: 720px) { .lincoln__grid { grid-template-columns: 1fr; } }
