@@ -47,7 +47,10 @@ function mapHashesHome(html) {
 /* ---- shared header with active-tab state ---- */
 const NAV = [
   { key: "home", label: "Home", href: "index.html" },
+  { key: "about", label: "About", href: "index.html#about" },
+  { key: "why", label: "Why a union", href: "index.html#issues" },
   { key: "international", label: "International students", href: "international.html" },
+  { key: "voices", label: "Voices", href: "index.html#voices" },
   { key: "committee", label: "Committee", href: "committee.html" },
   { key: "faq", label: "FAQ", href: "faq.html" },
   { key: "lincoln", label: "Meet Lincoln", href: "meet-lincoln.html" },

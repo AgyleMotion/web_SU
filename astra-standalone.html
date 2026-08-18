@@ -157,7 +157,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 .hero__bg::after {
   content: ""; display: none;
 }
-.hero__inner { position: relative; z-index: 1; max-width: 880px; }
+.hero__inner { position: relative; z-index: 1; max-width: 1000px; }
 .hero__eyebrow {
   display: inline-block; margin: 0 0 18px; font-weight: 700; letter-spacing: 0.3px;
   font-size: 0.85rem; color: var(--red-deep);
@@ -165,7 +165,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 }
 .hero__title {
   font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(2.3rem, 6vw, 4.2rem); line-height: 1.05; letter-spacing: 0.2px;
+  font-size: clamp(2.1rem, 5.2vw, 3.9rem); line-height: 1.06; letter-spacing: 0.2px;
   margin: 0 0 22px; color: var(--ink);
 }
 .u-mark { position: relative; color: var(--red); white-space: nowrap; }
@@ -398,7 +398,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
   .footer__grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1140px) {
   .nav__toggle { display: flex; }
   .nav__links {
     position: absolute; top: 100%; left: 0; right: 0;
@@ -507,6 +507,47 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 .site-header .brand__mark { width: 52px; height: 52px; }
 .site-header .brand__mark.has-logo { border-radius: 0; overflow: visible; }
 .site-header .brand__text strong { font-size: 1.55rem; }
+
+/* --------------------- Meet Lincoln --------------------- */
+.lincoln__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: center; }
+.lincoln__photo { margin: 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.lincoln__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.lincoln__card .lead { font-size: 1.25rem; font-weight: 700; margin: 0 0 10px; }
+.lincoln__card p { color: var(--ink-soft); }
+.heart { margin-top: 24px; display: flex; align-items: center; gap: 16px; }
+.heart__btn { position: relative; width: 74px; height: 74px; flex: none; border: none; border-radius: 50%; cursor: pointer; background: var(--red); color: #fff; box-shadow: var(--shadow); display: grid; place-items: center; overflow: visible; transition: transform .12s ease, background .2s ease; }
+.heart__btn:hover { background: var(--red-deep); transform: translateY(-2px); }
+.heart__btn:active { transform: scale(.94); }
+.heart__icon { font-size: 2rem; line-height: 1; }
+.heart__btn.is-pop { animation: heartpop .35s ease; }
+@keyframes heartpop { 0% { transform: scale(1); } 40% { transform: scale(1.28); } 100% { transform: scale(1); } }
+.heart__count { margin: 0; }
+.heart__count strong { font-family: var(--font-display); font-size: 2.1rem; color: var(--red); display: block; line-height: 1; }
+.heart__count span { color: var(--muted); font-size: .95rem; }
+.heart__float { position: absolute; left: 50%; top: 4px; transform: translateX(-50%); color: #fff; font-size: 1.4rem; pointer-events: none; animation: heartfloat .9s ease-out forwards; }
+@keyframes heartfloat { 0% { opacity: 1; transform: translate(-50%, 0) scale(.8); } 100% { opacity: 0; transform: translate(-50%, -64px) scale(1.3); } }
+@media (max-width: 720px) { .lincoln__grid { grid-template-columns: 1fr; } }
+
+/* --------------------- Lincoln + heart refinements --------------------- */
+:root { --red-vivid: #e11d2a; --red-vivid-deep: #c1121f; }
+.lincoln .section__head { max-width: none; }
+@media (min-width: 880px) { .lincoln .section__intro { white-space: nowrap; } }
+.lincoln__grid { align-items: start; }
+.lincoln__card { padding-top: 4px; }
+.heart { gap: 22px; margin-top: 26px; }
+.heart__btn { width: 120px; height: 120px; background: var(--red-vivid); }
+.heart__btn:hover { background: var(--red-vivid-deep); }
+.heart__icon { font-size: 3.4rem; }
+.heart__count strong { color: var(--red-vivid); font-size: 2.8rem; }
+.heart__float { color: var(--red-vivid); font-size: 1.8rem; }
+
+/* --------------------- Tighter top nav for 8 items --------------------- */
+@media (min-width: 1141px) {
+  .nav { gap: 14px; }
+  .nav__links { gap: 4px; }
+  .nav__link { padding: 8px 9px; font-size: 0.9rem; }
+  .nav__cta { padding: 10px 16px; font-size: 0.9rem; }
+}
 
 </style>
 <script>document.documentElement.classList.add('js');</script>
@@ -1004,6 +1045,58 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
           </form>
         </div>
       </div>
+    </section>
+
+    <!-- ==================== MEET LINCOLN ==================== -->
+    <section class="section lincoln" id="lincoln">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__eyebrow">Campaign dog</p>
+          <h2 class="section__title">Meet Lincoln</h2>
+          <p class="section__intro">Every good campaign needs a good boy. Lincoln keeps morale high on the long organizing days.</p>
+        </div>
+        <div class="lincoln__grid">
+          <figure class="lincoln__photo reveal">
+            <img src="assets/lincoln.jpg" alt="Lincoln, a happy white labradoodle, standing on a sunny forest trail" loading="lazy" />
+          </figure>
+          <div class="lincoln__card reveal">
+            <p class="lead">This is Lincoln.</p>
+            <p>He is ASTRA's unofficial morale officer, chief tail-wagger, and a firm believer that everyone deserves a good walk, a fair contract, and plenty of treats.</p>
+            <p>Show Lincoln some love. Tap the heart.</p>
+            <div class="heart">
+              <button class="heart__btn" id="heartBtn" type="button" aria-label="Give Lincoln some love">
+                <span class="heart__icon" aria-hidden="true">&#10084;</span>
+              </button>
+              <p class="heart__count"><strong id="heartCount">0</strong> <span>hearts for Lincoln</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var btn = document.getElementById('heartBtn');
+          var out = document.getElementById('heartCount');
+          if (!btn || !out) return;
+          var KEY = 'lincoln-hearts';
+          var n = parseInt(localStorage.getItem(KEY) || '0', 10);
+          if (isNaN(n)) n = 0;
+          out.textContent = n;
+          btn.addEventListener('click', function () {
+            n += 1;
+            localStorage.setItem(KEY, String(n));
+            out.textContent = n;
+            btn.classList.remove('is-pop');
+            void btn.offsetWidth;
+            btn.classList.add('is-pop');
+            var f = document.createElement('span');
+            f.className = 'heart__float';
+            f.setAttribute('aria-hidden', 'true');
+            f.innerHTML = '&#10084;';
+            btn.appendChild(f);
+            setTimeout(function () { f.remove(); }, 900);
+          });
+        })();
+      </script>
     </section>
   </main>
 
