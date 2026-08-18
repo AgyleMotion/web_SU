@@ -503,12 +503,10 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 .dept p { margin: 0; color: var(--ink-soft); font-size: 0.96rem; }
 
 /* --------- Header brand lockup: emblem + ASTRA on top, full name below both --------- */
-.site-header .brand { display: grid; grid-template-columns: auto 1fr; grid-template-areas: "mark acr" "full full"; align-items: center; column-gap: 12px; row-gap: 2px; max-width: 420px; }
-.site-header .brand__mark { grid-area: mark; }
+.site-header .brand { display: inline-flex; align-items: center; column-gap: 12px; }
+.site-header .brand__mark { width: 52px; height: 52px; }
 .site-header .brand__mark.has-logo { border-radius: 0; overflow: visible; }
-.site-header .brand__text { display: contents; }
-.site-header .brand__text strong { grid-area: acr; font-size: 1.5rem; align-self: center; }
-.site-header .brand__text small { grid-area: full; line-height: 1.3; }
+.site-header .brand__text strong { font-size: 1.55rem; }
 
 </style>
 <script>document.documentElement.classList.add('js');</script>
@@ -549,7 +547,6 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
         </span>
         <span class="brand__text">
           <strong>ASTRA</strong>
-          <small>Association of Stevens Teaching and Research Assistants</small>
         </span>
       </a>
 
@@ -1040,7 +1037,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
               <circle class="repulsor-core" cx="11.6" cy="14.6" r="1.35" fill="#ffffff"/>
             </svg>
           </span>
-          <span class="brand__text"><strong>ASTRA</strong><small>Association of Stevens Teaching and Research Assistants</small></span>
+          <span class="brand__text"><strong>ASTRA</strong></span>
         </span>
         <p class="footer__aff">
           <!-- CUSTOMIZE: [UNION AFFILIATION] -->
