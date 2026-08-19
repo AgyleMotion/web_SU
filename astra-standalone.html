@@ -160,9 +160,10 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 }
 .hero__inner { position: relative; z-index: 1; max-width: 1000px; }
 .hero__eyebrow {
-  display: inline-block; margin: 0 0 18px; font-weight: 700; letter-spacing: 0.3px;
-  font-size: 0.85rem; color: var(--red-deep);
-  background: rgba(106,12,11,.08); padding: 7px 14px; border-radius: 999px;
+  display: inline-block; margin: 0 0 18px; font-weight: 800; letter-spacing: 0.4px;
+  font-size: 1.05rem; color: #fff;
+  background: var(--red); padding: 10px 20px; border-radius: 999px;
+  box-shadow: var(--shadow-sm);
 }
 .hero__title {
   font-family: var(--font-display); font-weight: 400;
@@ -1078,23 +1079,38 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
           var btn = document.getElementById('heartBtn');
           var out = document.getElementById('heartCount');
           if (!btn || !out) return;
-          var KEY = 'lincoln-hearts';
-          var n = parseInt(localStorage.getItem(KEY) || '0', 10);
-          if (isNaN(n)) n = 0;
-          out.textContent = n;
-          btn.addEventListener('click', function () {
-            n += 1;
-            localStorage.setItem(KEY, String(n));
-            out.textContent = n;
-            btn.classList.remove('is-pop');
-            void btn.offsetWidth;
-            btn.classList.add('is-pop');
+          var API = '/api/hearts';
+          var LKEY = 'lincoln-hearts';
+          var busy = false;
+          function show(n) { out.textContent = n; }
+          function localCount() { var n = parseInt(localStorage.getItem(LKEY) || '0', 10); return isNaN(n) ? 0 : n; }
+
+          // Load the shared total; fall back to this device's tally if the API isn't live yet.
+          fetch(API, { cache: 'no-store' })
+            .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+            .then(function (d) { show(d.count); })
+            .catch(function () { show(localCount()); });
+
+          function pop() {
+            btn.classList.remove('is-pop'); void btn.offsetWidth; btn.classList.add('is-pop');
             var f = document.createElement('span');
-            f.className = 'heart__float';
-            f.setAttribute('aria-hidden', 'true');
-            f.innerHTML = '&#10084;';
-            btn.appendChild(f);
-            setTimeout(function () { f.remove(); }, 900);
+            f.className = 'heart__float'; f.setAttribute('aria-hidden', 'true'); f.innerHTML = '&#10084;';
+            btn.appendChild(f); setTimeout(function () { f.remove(); }, 900);
+          }
+
+          btn.addEventListener('click', function () {
+            pop();
+            if (busy) return;
+            busy = true;
+            fetch(API, { method: 'POST', cache: 'no-store' })
+              .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+              .then(function (d) { show(d.count); busy = false; })
+              .catch(function () {
+                // API not available (e.g. before Cloudflare setup): count on this device.
+                var n = localCount() + 1;
+                localStorage.setItem(LKEY, String(n));
+                show(n); busy = false;
+              });
           });
         })();
       </script>

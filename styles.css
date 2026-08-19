@@ -156,9 +156,10 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 }
 .hero__inner { position: relative; z-index: 1; max-width: 1000px; }
 .hero__eyebrow {
-  display: inline-block; margin: 0 0 18px; font-weight: 700; letter-spacing: 0.3px;
-  font-size: 0.85rem; color: var(--red-deep);
-  background: rgba(106,12,11,.08); padding: 7px 14px; border-radius: 999px;
+  display: inline-block; margin: 0 0 18px; font-weight: 800; letter-spacing: 0.4px;
+  font-size: 1.05rem; color: #fff;
+  background: var(--red); padding: 10px 20px; border-radius: 999px;
+  box-shadow: var(--shadow-sm);
 }
 .hero__title {
   font-family: var(--font-display); font-weight: 400;
