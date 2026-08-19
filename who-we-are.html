@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meet Lincoln | ASTRA</title>
-  <meta name="description" content="Meet Lincoln, ASTRA's campaign dog and chief morale officer. Give him some love." />
+  <title>Who we are | ASTRA</title>
+  <meta name="description" content="The graduate workers behind ASTRA, in their own words, plus your organizers by department." />
   <meta name="theme-color" content="#ffffff" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,79 +57,70 @@
         <a class="nav__link" href="index.html">Home</a>
         <a class="nav__link" href="index.html#about">About</a>
         <a class="nav__link" href="index.html#issues">Why a union</a>
-        <a class="nav__link" href="who-we-are.html">Who are we</a>
+        <a class="nav__link" href="who-we-are.html" aria-current="page">Who are we</a>
         <a class="nav__link" href="international.html">International students</a>
         <a class="nav__link" href="faq.html">FAQ</a>
-        <a class="nav__link" href="meet-lincoln.html" aria-current="page">Meet Lincoln</a>
+        <a class="nav__link" href="meet-lincoln.html">Meet Lincoln</a>
         <a class="nav__cta" href="sign-card.html">Sign your card</a>
       </div>
     </nav>
   </header>
   <main id="main">
-<section class="section lincoln" id="lincoln">
+<section class="section voices" id="voices">
       <div class="container">
         <div class="section__head reveal">
-          <p class="section__eyebrow">Campaign dog</p>
-          <h2 class="section__title">Meet Lincoln</h2>
-          <p class="section__intro">Every good campaign needs a good boy. Lincoln keeps morale high on the long organizing days.</p>
+          <p class="section__eyebrow">Testimonials</p>
+          <h2 class="section__title">Why we're signing</h2>
+          <p class="section__intro">ASTRA members across departments, in their own words.</p>
         </div>
-        <div class="lincoln__grid">
-          <figure class="lincoln__photo reveal">
-            <img src="assets/lincoln.jpg" alt="Lincoln, a happy white labradoodle, standing on a sunny forest trail" loading="lazy" />
+
+        <div class="voices__grid">
+          <figure class="quote reveal">
+            <blockquote class="quote__text">"I had two other PhD offers from NJ universities, both $12-17k higher than Stevens. I chose Stevens anyway, for the research and advisor match. But passion doesn't pay Hoboken rent, and Stevens doesn't even offer graduate housing in one of the country's most expensive rental markets. Meanwhile, constantly shifting departmental processes and deadlines create stress, delay candidacy advancement, and delay pay, with no accountability. I'm fighting for a stipend that reflects the real cost of living, affordable benefits for all, and an administration accountable to the graduate workers who build this university's research reputation."</blockquote>
+            <figcaption class="quote__person">
+              <span class="quote__avatar" aria-hidden="true">SB</span>
+              <span><strong>Sara Bender-Bier</strong><small>Biomedical Engineering</small></span>
+            </figcaption>
           </figure>
-          <div class="lincoln__card reveal">
-            <p class="lead">This is Lincoln.</p>
-            <p>He is ASTRA's unofficial morale officer, chief tail-wagger, and a firm believer that everyone deserves a good walk, a fair contract, and plenty of treats.</p>
-            <p><strong>Show Lincoln some love. Tap the heart.</strong></p>
-            <div class="heart">
-              <button class="heart__btn" id="heartBtn" type="button" aria-label="Give Lincoln some love">
-                <span class="heart__icon" aria-hidden="true">&#10084;</span>
-              </button>
-              <p class="heart__count"><strong id="heartCount">0</strong> <span>hearts for Lincoln</span></p>
-            </div>
-          </div>
+          <figure class="quote reveal">
+            <blockquote class="quote__text">"Stevens' offer letter promised first-year funding as a fellowship, with TA or RA work covering later years. It said nothing about health insurance, which I later found I had to pay for myself. My first summer was funded, but starting year two, summers aren't covered. We also lose two paychecks a year (end of fall and end of spring). So out of 12 months, we really only get paid for about 7: 3 summer months unfunded, 1 month lost to missing paychecks, and 1 month spent on health insurance. That's not enough to live on in New Jersey, let alone focus on real research. So I hope for an accountable authority that will look after the situation of the grad students."</blockquote>
+            <figcaption class="quote__person">
+              <span class="quote__avatar" aria-hidden="true">SC</span>
+              <span><strong>Sakib Chowdhury</strong><small>Electrical and Computer Engineering</small></span>
+            </figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote class="quote__text">"Despite being a leading STEM institution, Stevens payroll has twice come to me saying they miscalculated my stipend salary, and forced me to give back thousands of dollars that had already been paid to me. This could have easily been prevented if PhD student workers had basic information about the stipend rates. Right now, everything is so arbitrary, and the only consistency among it all is that the rates are abysmally low in a region where the cost of living is high. If Stevens wants us to be the 'research engine' it claims we are, we PhD students must be ensured fair compensation, protections from arbitrary hiring and disciplinary practices, and dignity as vital workers to this institution."</blockquote>
+            <figcaption class="quote__person">
+              <span class="quote__avatar" aria-hidden="true">CB</span>
+              <span><strong>Charles Beall</strong><small>Mathematical Sciences</small></span>
+            </figcaption>
+          </figure>
         </div>
       </div>
-      <script>
-        (function () {
-          var btn = document.getElementById('heartBtn');
-          var out = document.getElementById('heartCount');
-          if (!btn || !out) return;
-          var API = '/api/hearts';
-          var LKEY = 'lincoln-hearts';
-          var busy = false;
-          function show(n) { out.textContent = n; }
-          function localCount() { var n = parseInt(localStorage.getItem(LKEY) || '0', 10); return isNaN(n) ? 0 : n; }
+    </section><section class="section committee" id="committee">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__eyebrow">Our people</p>
+          <h2 class="section__title">Organizing across departments</h2>
+          <p class="section__intro">Some of the graduate workers building ASTRA-UAW, department by department.</p>
+        </div>
 
-          // Load the shared total; fall back to this device's tally if the API isn't live yet.
-          fetch(API, { cache: 'no-store' })
-            .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-            .then(function (d) { show(d.count); })
-            .catch(function () { show(localCount()); });
+        <div class="dept-grid">
+          <div class="dept reveal"><h3>Mechanical Engineering</h3><p>Nima Kalantari, Jett Langhorn, Mohamed Eraky</p></div>
+          <div class="dept reveal"><h3>Electrical &amp; Computer Engineering</h3><p>Sakib</p></div>
+          <div class="dept reveal"><h3>Biomedical Engineering</h3><p>Sara, Sophie, Zahava</p></div>
+          <div class="dept reveal"><h3>Civil Engineering</h3><p>Ahmed Shalaby</p></div>
+          <div class="dept reveal"><h3>Computer Science</h3><p>Adarsh</p></div>
+          <div class="dept reveal"><h3>Mathematical Sciences</h3><p>Charlie</p></div>
+          <div class="dept reveal"><h3>Chemistry &amp; Chemical Biology</h3><p>Gabe Castro</p></div>
+          <div class="dept reveal"><h3>Physics</h3><p>Daniel Lopez</p></div>
+          <div class="dept reveal"><h3>Systems Engineering</h3><p>Elia, Amirezza</p></div>
+          <div class="dept reveal"><h3>Business</h3><p>Sai, Marina</p></div>
+        </div>
 
-          function pop() {
-            btn.classList.remove('is-pop'); void btn.offsetWidth; btn.classList.add('is-pop');
-            var f = document.createElement('span');
-            f.className = 'heart__float'; f.setAttribute('aria-hidden', 'true'); f.innerHTML = '&#10084;';
-            btn.appendChild(f); setTimeout(function () { f.remove(); }, 900);
-          }
-
-          btn.addEventListener('click', function () {
-            pop();
-            if (busy) return;
-            busy = true;
-            fetch(API, { method: 'POST', cache: 'no-store' })
-              .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-              .then(function (d) { show(d.count); busy = false; })
-              .catch(function () {
-                // API not available (e.g. before Cloudflare setup): count on this device.
-                var n = localCount() + 1;
-                localStorage.setItem(LKEY, String(n));
-                show(n); busy = false;
-              });
-          });
-        })();
-      </script>
+        <p class="committee__note reveal">Not listed here yet? <a href="get-involved.html">Get involved &rarr;</a></p>
+      </div>
     </section>
     <section class="cta-band">
       <div class="container cta-band__inner">

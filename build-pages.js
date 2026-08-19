@@ -27,7 +27,7 @@ const S = {
 /* ---- rewrite in-page #anchors to real pages ---- */
 const HASH = {
   "#about": "index.html#about", "#issues": "index.html#issues", "#international": "international.html",
-  "#voices": "index.html#voices", "#committee": "committee.html", "#faq": "faq.html",
+  "#voices": "who-we-are.html#voices", "#committee": "who-we-are.html#committee", "#faq": "faq.html",
   "#card": "sign-card.html", "#involved": "get-involved.html", "#hero": "index.html", "#top": "index.html",
 };
 function mapHashes(html) {
@@ -39,7 +39,8 @@ function mapHashes(html) {
 // same-page anchors and only send links to OTHER pages out to their files.
 function mapHashesHome(html) {
   html = html.split('href="#cardForm"').join('href="sign-card.html#cardForm"');
-  const M = { "#international": "international.html", "#committee": "committee.html", "#faq": "faq.html",
+  const M = { "#international": "international.html", "#voices": "who-we-are.html#voices",
+              "#committee": "who-we-are.html#committee", "#faq": "faq.html",
               "#card": "sign-card.html", "#involved": "get-involved.html" };
   for (const [h, f] of Object.entries(M)) html = html.split('href="' + h + '"').join('href="' + f + '"');
   return html;
@@ -49,9 +50,8 @@ const NAV = [
   { key: "home", label: "Home", href: "index.html" },
   { key: "about", label: "About", href: "index.html#about" },
   { key: "why", label: "Why a union", href: "index.html#issues" },
-  { key: "voices", label: "Voices", href: "index.html#voices" },
+  { key: "who", label: "Who are we", href: "who-we-are.html" },
   { key: "international", label: "International students", href: "international.html" },
-  { key: "committee", label: "Committee", href: "committee.html" },
   { key: "faq", label: "FAQ", href: "faq.html" },
   { key: "lincoln", label: "Meet Lincoln", href: "meet-lincoln.html" },
 ];
@@ -121,15 +121,15 @@ const EXPLORE = `
           <h2 class="section__title">Explore</h2>
         </div>
         <div class="explore-grid">
+          <a class="explore-card" href="who-we-are.html"><h3>Who are we &rarr;</h3><p>The people behind the campaign, in their own words, and your organizers by department.</p></a>
           <a class="explore-card" href="international.html"><h3>International students &rarr;</h3><p>Support for international students, visa security, and research funding.</p></a>
-          <a class="explore-card" href="committee.html"><h3>Committee &rarr;</h3><p>Meet the people leading the campaign.</p></a>
           <a class="explore-card" href="faq.html"><h3>FAQ &rarr;</h3><p>Confidential? Free? Safe for international workers? Answers here.</p></a>
         </div>
       </div>
     </section>`;
 
 const HOME_MAIN = mapHashesHome(heroSection) + "\n" + marquee + "\n" +
-  mapHashesHome(S.about + S.issues + S.compare + S.voices) + "\n" + EXPLORE + "\n" + CTA_BAND;
+  mapHashesHome(S.about + S.issues + S.compare) + "\n" + EXPLORE + "\n" + CTA_BAND;
 
 /* ---- pages ---- */
 const PAGES = [
@@ -137,8 +137,8 @@ const PAGES = [
     desc: "441 PhD students at Stevens organizing a union for a real voice over pay, benefits, and working conditions.", main: HOME_MAIN },
   { file: "international.html", active: "international", title: "International students | ASTRA",
     desc: "How a union contract protects international workers and secures research funding.", main: mapHashes(S.international) + CTA_BAND },
-  { file: "committee.html", active: "committee", title: "Organizing committee | ASTRA",
-    desc: "Meet the worker-led organizing committee behind the ASTRA campaign.", main: mapHashes(S.committee) + CTA_BAND },
+  { file: "who-we-are.html", active: "who", title: "Who we are | ASTRA",
+    desc: "The graduate workers behind ASTRA, in their own words, plus your organizers by department.", main: mapHashes(S.voices) + mapHashes(S.committee) + CTA_BAND },
   { file: "faq.html", active: "faq", title: "FAQ | ASTRA",
     desc: "Answers about union cards, confidentiality, dues, eligibility, and international workers.", main: mapHashes(S.faq) + CTA_BAND },
   { file: "sign-card.html", active: "card", title: "Sign your union card | ASTRA",
@@ -159,4 +159,12 @@ fs.writeFileSync(DIR + "/about.html",
   '<title>About | ASTRA</title>\n' +
   '</head><body><p>The about page moved to the <a href="index.html#about">home page</a>.</p></body></html>\n');
 console.log("wrote about.html (redirect)");
+
+// committee.html moved into the merged who-we-are page
+fs.writeFileSync(DIR + "/committee.html",
+  '<!DOCTYPE html>\n<html lang="en"><head><meta charset="UTF-8" />\n' +
+  '<meta http-equiv="refresh" content="0; url=who-we-are.html#committee" />\n' +
+  '<title>Committee | ASTRA</title>\n' +
+  '</head><body><p>This page moved to <a href="who-we-are.html#committee">Who are we</a>.</p></body></html>\n');
+console.log("wrote committee.html (redirect)");
 console.log("done:", n, "pages + redirect");
