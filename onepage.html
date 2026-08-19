@@ -564,16 +564,19 @@
           var btn = document.getElementById('heartBtn');
           var out = document.getElementById('heartCount');
           if (!btn || !out) return;
-          var API = '/api/hearts';
+          // Shared counter hosted by Abacus, works on any host and is the same for every visitor.
+          var BASE = 'https://abacus.jasoncameron.dev';
+          var NS = 'astra-uaw-lincoln-x7k2';
+          var KEY = 'hearts';
           var LKEY = 'lincoln-hearts';
           var busy = false;
           function show(n) { out.textContent = n; }
           function localCount() { var n = parseInt(localStorage.getItem(LKEY) || '0', 10); return isNaN(n) ? 0 : n; }
 
-          // Load the shared total; fall back to this device's tally if the API isn't live yet.
-          fetch(API, { cache: 'no-store' })
-            .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-            .then(function (d) { show(d.count); })
+          // Read the global total on load (does not increment).
+          fetch(BASE + '/get/' + NS + '/' + KEY)
+            .then(function (r) { return r.json(); })
+            .then(function (d) { show(d && typeof d.value === 'number' ? d.value : 0); })
             .catch(function () { show(localCount()); });
 
           function pop() {
@@ -587,14 +590,12 @@
             pop();
             if (busy) return;
             busy = true;
-            fetch(API, { method: 'POST', cache: 'no-store' })
-              .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-              .then(function (d) { show(d.count); busy = false; })
+            // Increment the shared global counter and show the new total.
+            fetch(BASE + '/hit/' + NS + '/' + KEY)
+              .then(function (r) { return r.json(); })
+              .then(function (d) { if (d && typeof d.value === 'number') show(d.value); busy = false; })
               .catch(function () {
-                // API not available (e.g. before Cloudflare setup): count on this device.
-                var n = localCount() + 1;
-                localStorage.setItem(LKEY, String(n));
-                show(n); busy = false;
+                var n = localCount() + 1; localStorage.setItem(LKEY, String(n)); show(n); busy = false;
               });
           });
         })();
