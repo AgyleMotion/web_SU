@@ -504,7 +504,7 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 .site-header .brand { display: inline-flex; align-items: center; column-gap: 12px; }
 .site-header .brand__mark { width: 52px; height: 52px; }
 .site-header .brand__mark.has-logo { border-radius: 0; overflow: visible; }
-.site-header .brand__mark.has-logo { width: 156px; height: 84px; }
+.site-header .brand__mark.has-logo { width: 156px; height: 84px; background: transparent; }
 .brand--footer .brand__mark.has-logo { width: 96px; height: 52px; border-radius: 6px; }
 @media (max-width: 560px) { .site-header .brand__mark.has-logo { width: 118px; height: 64px; } }
 .site-header .brand__text strong { font-family: var(--font-brand); font-size: 1.6rem; font-weight: 600; letter-spacing: 4px; }
