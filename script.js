@@ -161,6 +161,39 @@
     });
   }
 
+  /* ---- Home page: underline the nav link for the section in view ---- */
+  var homeLink = document.querySelector('.nav__link[href="index.html"]');
+  var spyLinks = [];
+  if (homeLink && homeLink.getAttribute("aria-current") === "page") {
+    ["about", "issues"].forEach(function (id) {
+      var sec = document.getElementById(id);
+      var link = document.querySelector('.nav__link[href="index.html#' + id + '"]');
+      if (sec && link) spyLinks.push({ sec: sec, link: link });
+    });
+  }
+  if (spyLinks.length) {
+    var spyTicking = false;
+    var updateSpy = function () {
+      spyTicking = false;
+      var header = document.querySelector(".site-header");
+      var line = (header ? header.offsetHeight : 0) + 40;
+      var active = homeLink;
+      spyLinks.forEach(function (s) {
+        var r = s.sec.getBoundingClientRect();
+        if (r.top <= line && r.bottom > line) active = s.link;
+      });
+      [homeLink].concat(spyLinks.map(function (s) { return s.link; })).forEach(function (l) {
+        if (l === active) l.setAttribute("aria-current", "page");
+        else l.removeAttribute("aria-current");
+      });
+    };
+    window.addEventListener("scroll", function () {
+      if (!spyTicking) { spyTicking = true; requestAnimationFrame(updateSpy); }
+    }, { passive: true });
+    window.addEventListener("hashchange", updateSpy);
+    updateSpy();
+  }
+
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];

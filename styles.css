@@ -560,3 +560,6 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
   .site-header .nav__link { padding: 8px 12px; font-size: 0.93rem; }
   .site-header .nav__cta { margin-left: 14px; padding: 11px 20px; font-size: 0.93rem; }
 }
+
+/* Keep section headings clear of the sticky header when jumping to #anchors */
+section[id] { scroll-margin-top: 110px; }
