@@ -504,11 +504,11 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 .site-header .brand { display: inline-flex; align-items: center; column-gap: 12px; }
 .site-header .brand__mark { width: 52px; height: 52px; }
 .site-header .brand__mark.has-logo { border-radius: 0; overflow: visible; }
-.site-header .brand__mark.has-logo { width: 172px; height: 122px; background: transparent; }
+.site-header .brand__mark.has-logo { width: 210px; height: 149px; background: transparent; }
 .site-header .brand__mark.has-logo + .brand__text { display: none; }
-.brand--footer .brand__mark.has-logo { width: 240px; height: 170px; border-radius: 10px; }
+.brand--footer .brand__mark.has-logo { width: 270px; height: 191px; border-radius: 10px; }
 .brand--footer .brand__mark.has-logo + .brand__text { display: none; }
-@media (max-width: 560px) { .site-header .brand__mark.has-logo { width: 127px; height: 90px; } .brand--footer .brand__mark.has-logo { width: 208px; height: 148px; } }
+@media (max-width: 560px) { .site-header .brand__mark.has-logo { width: 140px; height: 99px; } .brand--footer .brand__mark.has-logo { width: 220px; height: 156px; } }
 .site-header .brand__text strong { font-family: var(--font-brand); font-size: 1.6rem; font-weight: 600; letter-spacing: 4px; }
 
 /* --------------------- Meet Lincoln --------------------- */
@@ -555,8 +555,8 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 /* --------------------- Roomier header around the larger logo --------------------- */
 .site-header .nav { max-width: 1400px; }
 @media (min-width: 1301px) {
-  .site-header .nav { gap: 0; }
-  .site-header .nav__links { flex: 1; justify-content: space-between; margin-left: 20px; gap: 8px; }
-  .site-header .nav__link { padding: 8px 10px; font-size: 0.92rem; }
-  .site-header .nav__cta { padding: 11px 20px; font-size: 0.92rem; }
+  .site-header .nav { gap: 40px; }
+  .site-header .nav__links { gap: 4px; }
+  .site-header .nav__link { padding: 8px 12px; font-size: 0.93rem; }
+  .site-header .nav__cta { margin-left: 14px; padding: 11px 20px; font-size: 0.93rem; }
 }
