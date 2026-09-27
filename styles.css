@@ -563,3 +563,5 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 
 /* Keep section headings clear of the sticky header when jumping to #anchors */
 section[id] { scroll-margin-top: 110px; }
+.cta-band__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+#listForm, #cardForm { scroll-margin-top: 170px; }
