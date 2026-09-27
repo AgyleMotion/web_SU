@@ -551,3 +551,19 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
   .nav__link { padding: 8px 9px; font-size: 0.9rem; }
   .nav__cta { padding: 10px 16px; font-size: 0.9rem; }
 }
+
+/* --------------------- Roomier header around the larger logo --------------------- */
+.site-header .nav { max-width: 1400px; }
+@media (min-width: 1141px) {
+  .site-header .nav { gap: 32px; }
+  .site-header .nav__links { gap: 6px; }
+  .site-header .nav__link { padding: 8px 12px; font-size: 0.95rem; }
+  .site-header .nav__cta { margin-left: 12px; padding: 11px 20px; font-size: 0.95rem; }
+}
+@media (min-width: 1141px) and (max-width: 1380px) {
+  .site-header .nav { gap: 18px; }
+  .site-header .nav__links { gap: 2px; }
+  .site-header .nav__link { padding: 8px 8px; font-size: 0.9rem; }
+  .site-header .nav__cta { margin-left: 6px; padding: 10px 16px; font-size: 0.9rem; }
+  .site-header .brand__mark.has-logo { width: 170px; height: 92px; }
+}
