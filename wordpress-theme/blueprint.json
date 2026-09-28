@@ -1,0 +1,10 @@
+{
+  "landingPage": "/wp-admin/",
+  "preferredVersions": { "php": "8.1", "wp": "latest" },
+  "steps": [
+    { "step": "login", "username": "admin", "password": "password" },
+    { "step": "defineWpConfigConsts", "consts": { "WP_DEBUG": true, "WP_DEBUG_DISPLAY": true } },
+    { "step": "activateTheme", "themeFolderName": "astra-uaw" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require_once ABSPATH . 'wp-admin/includes/admin.php'; wp_set_current_user(1); print_r( astra_uaw_import_starter_content() );" }
+  ]
+}
