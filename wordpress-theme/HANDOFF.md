@@ -21,7 +21,7 @@ Built to the brief in `WORDPRESS-CONVERSION.md`. This covers what was delivered,
 
 1. **Union card platform URL (brief §7.2).** The card form on Sign your card is a front-end placeholder and stores or sends nothing. Paste UAW's official card platform link into **Customize → ASTRA Campaign → Card signing**. The placeholder is then replaced by a button to that platform. Until then, the placeholder's "Thank you, your card has been recorded" message is misleading, so launching without the URL is not recommended.
 2. **Email signup ("Keep me posted").** Also a placeholder. Nothing is collected. It needs a mailing list provider (Action Network, Mailchimp or similar), which is not in the brief.
-3. **Social links.** Instagram and Bluesky point to `#`. Set real URLs in **Customize → ASTRA Campaign → Footer**, or clear a label to hide that link.
+3. **Social links.** There are no Instagram or Bluesky accounts yet, so those footer links are hidden. When accounts exist, fill in a label and URL under **Customize → ASTRA Campaign → Footer** (Link 1, Link 2) and they appear.
 4. **Brief §11 questions**, still unanswered: multisite, and the final domain. The theme is multisite-safe in principle but was only tested on a single site. Redirects and links use `home_url()`, so a subdirectory install works.
 5. **FAQ copy.** "How can I do more than sign?" still says "Join the organizing committee… via the Get involved section", but Get involved no longer has a committee option. The committee has asked to leave it as is for now.
 

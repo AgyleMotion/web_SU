@@ -72,7 +72,7 @@ Left menu: **Issues**.
 - **Home: hero and stats:** the big headline, the text under it, both buttons, and the **three numbers** (e.g. *441 PhD students reached*). Type only the number in the number boxes; the count-up animation is automatic.
 - **Home: sections:** the headings on the home page, the four "About" boxes, the "Without a union / With one" lists (one point per line), and the three "Explore" cards.
 - **Red "Ready to be part of it?" band:** the red box near the bottom of most pages.
-- **Footer:** contact email, the "Follow" links (Instagram, Bluesky…), the disclaimer and the copyright line.
+- **Footer:** contact email, the "Follow" links, the disclaimer and the copyright line. Instagram and Bluesky are not set up yet, so they are hidden. To add one, fill in both a label (e.g. *Instagram*) and its URL under Link 1 or Link 2. A link only shows when both are filled in.
 - **Card signing:** see *Before launch* below.
 
 The "Who we are" paragraphs on the home page are regular page text: **Pages → Home**.
