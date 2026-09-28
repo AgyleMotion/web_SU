@@ -24,7 +24,7 @@ function astra_uaw_customizer_sections() {
 			'title'  => __( 'Home: hero and stats', 'astra-uaw' ),
 			'fields' => array(
 				'astra_hero_eyebrow'    => array( __( 'Label above the headline', 'astra-uaw' ), 'text', 'Association of Stevens Teaching and Research Assistants' ),
-				'astra_hero_title'      => array( __( 'Headline', 'astra-uaw' ), 'html', 'We love what we do.<br />We\'d like a&nbsp;<span class="u-mark">say</span>&nbsp;in how it\'s done.', __( 'Use <br /> for a line break. Wrap a word in <span class="u-mark">…</span> to underline it in red.', 'astra-uaw' ) ),
+				'astra_hero_title'      => array( __( 'Headline', 'astra-uaw' ), 'html', 'Stevens works because <span class="u-mark">we do</span>.', __( 'Use <br /> for a line break. Wrap a word in <span class="u-mark">…</span> to underline it in red.', 'astra-uaw' ) ),
 				'astra_hero_lede'       => array( __( 'Text under the headline', 'astra-uaw' ), 'textarea', 'Graduate student workers at Stevens are coming together to form a union, so decisions about our pay, benefits, and working conditions are made with us, in a contract we help shape.' ),
 				'astra_hero_btn1_label' => array( __( 'Main button: label', 'astra-uaw' ), 'text', 'Sign your union card' ),
 				'astra_hero_btn1_url'   => array( __( 'Main button: link', 'astra-uaw' ), 'url', '/sign-card/' ),
