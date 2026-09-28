@@ -565,3 +565,5 @@ a { color: var(--red-deep); text-decoration-thickness: 1.5px; text-underline-off
 section[id] { scroll-margin-top: 110px; }
 .cta-band__actions { display: flex; flex-wrap: wrap; gap: 12px; }
 #listForm, #cardForm { scroll-margin-top: 170px; }
+.quote__avatar { width: 56px; height: 56px; }
+.quote__avatar--photo { object-fit: cover; background: var(--paper-2); }
